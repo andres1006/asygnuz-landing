@@ -1,0 +1,199 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+/* Background Grid */
+.gridBg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.gridLines {
+    position: absolute;
+    inset: -40px;
+    background-image:
+        linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-move 8s linear infinite;
+}
+
+/* Glow Orbs */
+.orbCyan {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.08), transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+.orbNavy {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(21, 43, 86, 0.4), transparent 70%);
+    bottom: -150px;
+    left: -150px;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+/* Content */
+.content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+/* Logo */
+.logo {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.8s var(--ease-out-expo);
+}
+
+.logo.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pre-title */
+.pretitle {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cyan-400);
+    margin-bottom: 28px;
+    padding: 8px 24px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 30px;
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.05);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s var(--ease-out-expo) 0.15s;
+}
+
+.pretitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title */
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 28px;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.9s var(--ease-out-expo) 0.3s;
+}
+
+.title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.highlight {
+    background: linear-gradient(135deg, var(--cyan-400), #00E68A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--gray-400);
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto 44px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.9s var(--ease-out-expo) 0.45s;
+}
+
+.subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.subtitle strong {
+    color: var(--white);
+}
+
+/* CTA Wrapper */
+.ctaWrapper {
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.9s var(--ease-out-expo) 0.6s;
+}
+
+.ctaWrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Trust Badge */
+.trustBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0;
+    transition: opacity 0.8s ease 0.8s;
+}
+
+.trustBadge.visible {
+    opacity: 1;
+}
+
+.trustDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    animation: pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(0, 230, 138, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0;
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .pretitle {
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        padding: 6px 16px;
+    }
+
+    .logo img {
+        width: 140px !important;
+    }
+}

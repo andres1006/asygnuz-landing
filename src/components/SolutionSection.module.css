@@ -1,0 +1,150 @@
+.solution {
+    background: var(--navy-800);
+    overflow: hidden;
+}
+
+.bgAccent {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.04), transparent 70%);
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 72px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s var(--ease-out-expo);
+}
+
+.header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.pillarCard {
+    background: rgba(10, 22, 40, 0.7);
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    border-radius: 24px;
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s var(--ease-out-expo);
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.pillarCard.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pillarCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cyan-400), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.pillarCard:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    transform: translateY(-6px);
+}
+
+.pillarCard:hover::before {
+    opacity: 1;
+}
+
+.pillarTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.pillarLabel {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan-400);
+    background: rgba(0, 212, 255, 0.08);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.pillarIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(0, 212, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan-400);
+}
+
+.pillarTitle {
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.3;
+}
+
+.pillarDesc {
+    font-size: 15px;
+    color: var(--gray-400);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.metricBlock {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+}
+
+.metricValue {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--cyan-400);
+    line-height: 1;
+}
+
+.metricLabel {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 900px) {
+    .pillars {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
