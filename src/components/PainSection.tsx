@@ -5,69 +5,54 @@ import styles from "./PainSection.module.css";
 
 const pains = [
     {
+        title: "Agencias Genéricas",
+        desc: "Contratar una agencia para hacer posts no sirve si tu software no retiene al cliente.",
         icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
-        ),
-        title: "Fugas de capital en pauta",
-        desc: "Tienes tráfico, pero tu landing page no retiene la atención y las conversiones son bajísimas.",
+        )
     },
     {
+        title: "Software Inútil",
+        desc: "Tu sitio web es un gasto si no está optimizado para capturar, calificar y convertir leads de forma autónoma.",
         icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" y1="9" x2="9.01" y2="9" /><line x1="15" y1="9" x2="15.01" y2="9" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
-        ),
-        title: "Caos operativo",
-        desc: "Tu equipo comercial pierde horas filtrando prospectos no cualificados manualmente.",
-    },
-    {
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /><line x1="1" y1="1" x2="23" y2="23" />
-            </svg>
-        ),
-        title: "Data ciega",
-        desc: "No sabes con exactitud qué anuncio generó qué cliente porque tu tracking (píxeles/API) está mal configurado.",
-    },
-    {
-        icon: (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
-        ),
-        title: "Tecnología obsoleta",
-        desc: "Tu sitio se cae cuando hay picos de tráfico o carga tan lento que Google te penaliza.",
-    },
+        )
+    }
 ];
 
 export default function PainSection() {
     const { ref, isVisible } = useInView();
 
     return (
-        <section className={`section ${styles.pain}`} ref={ref}>
-            <div className="container">
-                <div className={`${styles.header} ${isVisible ? styles.visible : ""}`}>
-                    <p className="section-pretitle">El Diagnóstico</p>
-                    <h2 className="section-title">
-                        ¿Tu negocio sufre de alguno de estos cuellos de botella?
+        <section className={`py-24 bg-black text-white relative border-t border-gray-800 ${styles.pain}`} ref={ref}>
+            <div className="container mx-auto px-6">
+                <div className={`max-w-3xl mx-auto text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <p className="text-red-400 font-mono text-sm tracking-widest uppercase mb-4">El Problema Real</p>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        El marketing sin tecnología es ruido. <br/>
+                        <span className="text-gray-500">La tecnología sin ventas es un gasto.</span>
                     </h2>
+                    <p className="text-xl text-gray-400 leading-relaxed">
+                        Contratar una agencia para hacer posts no sirve si tu software no retiene al cliente. Necesitas <strong className="text-white">Growth Engineering</strong>: la fusión perfecta entre código limpio, IA autónoma y embudos de alta conversión.
+                    </p>
                 </div>
 
-                <div className={styles.grid}>
+                <div className={`grid md:grid-cols-2 gap-8 max-w-4xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     {pains.map((pain, i) => (
-                        <div
-                            key={i}
-                            className={`${styles.card} ${isVisible ? styles.visible : ""}`}
-                            style={{ transitionDelay: `${0.15 * (i + 1)}s` }}
-                        >
-                            <div className={styles.iconWrapper}>
-                                <div className={styles.xBadge}>✕</div>
+                        <div key={i} className="bg-gray-900/50 border border-gray-800 p-8 rounded-2xl hover:border-gray-700 transition-colors">
+                            <div className="bg-red-950/30 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-red-900/50">
                                 {pain.icon}
                             </div>
-                            <h3 className={styles.cardTitle}>{pain.title}</h3>
-                            <p className={styles.cardDesc}>{pain.desc}</p>
+                            <h3 className="text-xl font-semibold mb-3">{pain.title}</h3>
+                            <p className="text-gray-400">{pain.desc}</p>
                         </div>
                     ))}
                 </div>
