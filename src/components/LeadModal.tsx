@@ -1,15 +1,15 @@
 "use client";
 
 import ApplicationSection from "./ApplicationSection";
+import { useLeadModal } from "@/context/LeadModalContext";
 
 export default function LeadModal() {
-    const closeModal = () => {
-        const modal = document.getElementById('lead-modal');
-        if (modal) modal.style.display = 'none';
-    };
+    const { isOpen, closeModal } = useLeadModal();
+
+    if (!isOpen) return null;
 
     return (
-        <div id="lead-modal" className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl hidden items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto">
             <div className="relative w-full max-w-5xl mx-auto bg-gray-900 border border-gray-800 rounded-3xl shadow-2xl overflow-hidden my-auto animate-fade-in-up">
                 <button 
                     onClick={closeModal}

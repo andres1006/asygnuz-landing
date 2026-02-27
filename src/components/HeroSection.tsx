@@ -3,19 +3,15 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./HeroSection.module.css";
+import { useLeadModal } from "@/context/LeadModalContext";
 
 export default function HeroSection() {
     const [loaded, setLoaded] = useState(false);
+    const { openModal } = useLeadModal();
 
     useEffect(() => {
         setLoaded(true);
     }, []);
-
-    const openModal = () => {
-        // We will implement the modal logic later
-        const modal = document.getElementById("lead-modal");
-        if (modal) modal.style.display = "flex";
-    };
 
     return (
         <section className={`${styles.hero} min-h-screen flex items-center relative overflow-hidden bg-black text-white`}>

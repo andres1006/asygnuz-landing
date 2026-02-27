@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import LeadModal from "@/components/LeadModal";
+import { LeadModalProvider } from "@/context/LeadModalContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -78,8 +79,10 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-black text-white antialiased">
-        {children}
-        <LeadModal />
+        <LeadModalProvider>
+          {children}
+          <LeadModal />
+        </LeadModalProvider>
       </body>
     </html>
   );
