@@ -78,7 +78,7 @@ export default function PainSection() {
                     className={styles.header}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
                     <p className={styles.pretitle}>
@@ -101,7 +101,7 @@ export default function PainSection() {
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
+                    viewport={{ once: true, margin: "-50px" }}
                 >
                     {pains.map((pain) => (
                         <motion.div
@@ -124,7 +124,7 @@ export default function PainSection() {
                     className={styles.footer}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
+                    viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 >
                     <p>La diferencia entre liderar y seguir radica en tu capacidad de <strong>ingeniería</strong>.</p>

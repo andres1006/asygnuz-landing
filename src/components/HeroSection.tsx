@@ -2,20 +2,32 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import styles from "./HeroSection.module.css";
 import { useLeadModal } from "@/context/LeadModalContext";
 
 export default function HeroSection() {
     const { openModal } = useLeadModal();
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play().catch(error => {
+                console.log("Video auto-play failed:", error);
+            });
+        }
+    }, []);
 
     return (
         <section className={styles.hero}>
             {/* Background Looping Video */}
             <video 
+                ref={videoRef}
                 autoPlay 
                 loop 
                 muted 
-                playsInline 
+                playsInline
+                defaultMuted
                 className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none mix-blend-screen"
             >
                 <source src="/hero-bg.mp4" type="video/mp4" />

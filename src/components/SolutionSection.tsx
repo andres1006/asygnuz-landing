@@ -82,7 +82,7 @@ export default function SolutionSection() {
                     className={styles.header}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <p className={styles.pretitle}>
@@ -104,7 +104,7 @@ export default function SolutionSection() {
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: true, margin: "-50px" }}
                 >
                     {pillars.map((pillar) => (
                         <motion.div
