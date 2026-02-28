@@ -49,15 +49,6 @@
 .header {
     text-align: center;
     margin-bottom: 72px;
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.header.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .pretitle {
@@ -92,7 +83,7 @@
 }
 
 .titleAccent {
-    background: linear-gradient(135deg, #00D4FF, #00E68A);
+    background: linear-gradient(135deg, var(--cyan-400), var(--success));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -121,16 +112,7 @@
     padding: 36px 28px;
     position: relative;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.3s ease;
-}
-
-.pillarCard.visible {
-    opacity: 1;
-    transform: translateY(0);
+    transition: border-color 0.3s ease;
 }
 
 /* Barra top de color */
@@ -145,10 +127,6 @@
     transition: opacity 0.4s ease;
 }
 
-.pillarCard:hover {
-    transform: translateY(-6px);
-}
-
 .pillarCard:hover::before {
     opacity: 1;
 }
@@ -156,11 +134,11 @@
 /* Variantes de acento */
 .accent_cyan { border-color: rgba(0, 212, 255, 0.1); }
 .accent_cyan:hover { border-color: rgba(0, 212, 255, 0.25); }
-.accent_cyan::before { background: linear-gradient(90deg, #00D4FF, transparent); }
+.accent_cyan::before { background: linear-gradient(90deg, var(--cyan-400), transparent); }
 
 .accent_emerald { border-color: rgba(0, 230, 138, 0.1); }
 .accent_emerald:hover { border-color: rgba(0, 230, 138, 0.25); }
-.accent_emerald::before { background: linear-gradient(90deg, #00E68A, transparent); }
+.accent_emerald::before { background: linear-gradient(90deg, var(--success), transparent); }
 
 .accent_purple { border-color: rgba(168, 85, 247, 0.1); }
 .accent_purple:hover { border-color: rgba(168, 85, 247, 0.25); }
@@ -194,8 +172,8 @@
     justify-content: center;
 }
 
-.icon_cyan    { background: rgba(0, 212, 255, 0.08); color: #00D4FF; }
-.icon_emerald { background: rgba(0, 230, 138, 0.08); color: #00E68A; }
+.icon_cyan    { background: rgba(0, 212, 255, 0.08); color: var(--cyan-400); }
+.icon_emerald { background: rgba(0, 230, 138, 0.08); color: var(--success); }
 .icon_purple  { background: rgba(168, 85, 247, 0.08); color: #a855f7; }
 
 /* ===================== PILLAR TEXT ===================== */
@@ -231,8 +209,8 @@
     line-height: 1;
 }
 
-.metric_cyan    { color: #00D4FF; }
-.metric_emerald { color: #00E68A; }
+.metric_cyan    { color: var(--cyan-400); }
+.metric_emerald { color: var(--success); }
 .metric_purple  { color: #a855f7; }
 
 .metricLabel {

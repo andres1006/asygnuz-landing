@@ -34,15 +34,6 @@
 .header {
     text-align: center;
     margin-bottom: 72px;
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.header.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .pretitle {
@@ -109,17 +100,7 @@
     border-radius: 20px;
     padding: 36px;
     position: relative;
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.3s ease,
-                background 0.3s ease;
-}
-
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
+    transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .card:hover {
@@ -180,16 +161,6 @@
     font-size: 15px;
     color: #475569;
     font-weight: 500;
-    opacity: 0;
-    transition: opacity 0.8s ease 0.7s;
-}
-
-.footer strong {
-    color: #fff;
-}
-
-.footerVisible {
-    opacity: 1;
 }
 
 /* ===================== RESPONSIVE ===================== */

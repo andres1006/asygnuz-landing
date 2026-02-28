@@ -1,6 +1,6 @@
 "use client";
 
-import { useInView } from "@/hooks/useInView";
+import { motion } from "framer-motion";
 import styles from "./SolutionSection.module.css";
 
 const pillars = [
@@ -50,17 +50,41 @@ const pillars = [
     }
 ];
 
-export default function SolutionSection() {
-    const { ref, isVisible } = useInView();
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.3
+        }
+    }
+};
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+        opacity: 1, 
+        y: 0, 
+        transition: { type: "spring", stiffness: 80, damping: 20 } 
+    }
+};
+
+export default function SolutionSection() {
     return (
-        <section className={styles.solution} ref={ref}>
+        <section className={styles.solution}>
             <div className={styles.bgAccent}></div>
             <div className={styles.topLine}></div>
 
             <div className={styles.inner}>
                 {/* Header */}
-                <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
+                <motion.div 
+                    className={styles.header}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
                     <p className={styles.pretitle}>
                         <span className={styles.pretitleLine}></span>
                         Growth System
@@ -72,15 +96,22 @@ export default function SolutionSection() {
                     <p className={styles.subtitle}>
                         Nuestra metodología fusiona desarrollo web de alta performance con ingeniería de adquisición y automatización con IA.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Pillars */}
-                <div className={styles.pillars}>
-                    {pillars.map((pillar, i) => (
-                        <div
-                            key={i}
-                            className={`${styles.pillarCard} ${styles[`accent_${pillar.accent}`]} ${isVisible ? styles.visible : ''}`}
-                            style={{ transitionDelay: `${i * 0.15}s` }}
+                <motion.div 
+                    className={styles.pillars}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
+                    {pillars.map((pillar) => (
+                        <motion.div
+                            key={pillar.title}
+                            className={`${styles.pillarCard} ${styles[`accent_${pillar.accent}`]}`}
+                            variants={cardVariants}
+                            whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
                         >
                             <div className={styles.pillarTop}>
                                 <div className={`${styles.pillarIcon} ${styles[`icon_${pillar.accent}`]}`}>
@@ -94,9 +125,9 @@ export default function SolutionSection() {
                                 <span className={`${styles.metricValue} ${styles[`metric_${pillar.accent}`]}`}>{pillar.metricValue}</span>
                                 <span className={styles.metricLabel}>{pillar.metricLabel}</span>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

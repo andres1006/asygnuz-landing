@@ -1,17 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./HeroSection.module.css";
 import { useLeadModal } from "@/context/LeadModalContext";
 
 export default function HeroSection() {
-    const [loaded, setLoaded] = useState(false);
     const { openModal } = useLeadModal();
-
-    useEffect(() => {
-        setLoaded(true);
-    }, []);
 
     return (
         <section className={styles.hero}>
@@ -32,12 +27,31 @@ export default function HeroSection() {
             </div>
 
             {/* Glow orbs - Cyber Blue / Electric Green accents */}
-            <div className={styles.orbCyan} />
-            <div className={styles.orbNavy} />
+            <motion.div 
+                className={styles.orbCyan} 
+                animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.5, 0.3]
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div 
+                className={styles.orbNavy} 
+                animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.4, 0.6, 0.4]
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
 
             <div className={`container mx-auto px-6 relative z-10 flex flex-col items-center justify-center ${styles.content}`}>
                 {/* Logo */}
-                <div className={`${styles.logo} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.logo}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
                     <Image
                         src="/logos/AsygnuzLogo1-010.png"
                         alt="Asygnuz"
@@ -46,26 +60,48 @@ export default function HeroSection() {
                         priority
                         style={{ filter: "invert(1)", objectFit: "contain" }}
                     />
-                </div>
+                </motion.div>
 
                 {/* Kicker */}
-                <div className={`${styles.pretitle} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.pretitle}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
                     INGENIERÍA APLICADA A LAS VENTAS
-                </div>
+                </motion.div>
 
                 {/* H1 */}
-                <h1 className={`${styles.title} ${loaded ? styles.visible : ""}`}>
+                <motion.h1 
+                    className={styles.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                >
                     No somos una agencia. <br />
                     Somos tu infraestructura de <span className={styles.highlight}>Growth Engineering</span>.
-                </h1>
+                </motion.h1>
 
                 {/* Sub-headline */}
-                <p className={`${styles.subtitle} ${loaded ? styles.visible : ""}`}>
+                <motion.p 
+                    className={styles.subtitle}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.6 }}
+                >
                     Integramos <strong>Desarrollo de Software</strong>, <strong>Agentes de Inteligencia Artificial</strong> y <strong>Performance Marketing</strong> para crear sistemas de ventas inquebrantables. Para empresas que hablan en serio.
-                </p>
+                </motion.p>
 
                 {/* CTA */}
-                <div className={`${styles.ctaWrapper} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.ctaWrapper}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                >
                     <button 
                         className="cta-button"
                         onClick={openModal}
@@ -75,13 +111,18 @@ export default function HeroSection() {
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </button>
-                </div>
+                </motion.div>
 
                 {/* Social Proof */}
-                <div className={`${styles.trustBadge} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.trustBadge}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                >
                     <div className={styles.trustDot}></div>
                     <span>Procesando millones en transacciones a través de nuestra tecnología</span>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
