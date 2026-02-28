@@ -1,26 +1,58 @@
+/* =====================================================
+   SOLUTION SECTION — CSS Module
+   Diseño 100% self-contained, sin dependencia de Tailwind containers
+   ===================================================== */
+
 .solution {
-    background: var(--navy-800);
+    position: relative;
+    background: #050d1a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 120px 0;
     overflow: hidden;
 }
 
+/* Fondo glow cyan sutil */
 .bgAccent {
     position: absolute;
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.04), transparent 70%);
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.05), transparent 70%);
     top: -200px;
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
 }
 
+/* Línea top decorativa */
+.topLine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.25), transparent);
+}
+
+/* Contenedor interno — centrado y con padding propio */
+.inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+    box-sizing: border-box;
+}
+
+/* ===================== HEADER ===================== */
 .header {
     text-align: center;
     margin-bottom: 72px;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s var(--ease-out-expo);
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header.visible {
@@ -28,22 +60,72 @@
     transform: translateY(0);
 }
 
+.pretitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan-400);
+    margin-bottom: 20px;
+}
+
+.pretitleLine {
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: rgba(0, 212, 255, 0.35);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.titleAccent {
+    background: linear-gradient(135deg, #00D4FF, #00E68A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+/* ===================== PILLARS GRID ===================== */
 .pillars {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
 }
 
+/* ===================== PILLAR CARD ===================== */
 .pillarCard {
     background: rgba(10, 22, 40, 0.7);
     border: 1px solid rgba(0, 212, 255, 0.08);
     border-radius: 24px;
-    padding: 40px 32px;
+    padding: 36px 28px;
     position: relative;
     overflow: hidden;
-    transition: all 0.6s var(--ease-out-expo);
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(36px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
 }
 
 .pillarCard.visible {
@@ -51,6 +133,7 @@
     transform: translateY(0);
 }
 
+/* Barra top de color */
 .pillarCard::before {
     content: '';
     position: absolute;
@@ -58,13 +141,11 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--cyan-400), transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
 .pillarCard:hover {
-    border-color: rgba(0, 212, 255, 0.2);
     transform: translateY(-6px);
 }
 
@@ -72,79 +153,115 @@
     opacity: 1;
 }
 
+/* Variantes de acento */
+.accent_cyan { border-color: rgba(0, 212, 255, 0.1); }
+.accent_cyan:hover { border-color: rgba(0, 212, 255, 0.25); }
+.accent_cyan::before { background: linear-gradient(90deg, #00D4FF, transparent); }
+
+.accent_emerald { border-color: rgba(0, 230, 138, 0.1); }
+.accent_emerald:hover { border-color: rgba(0, 230, 138, 0.25); }
+.accent_emerald::before { background: linear-gradient(90deg, #00E68A, transparent); }
+
+.accent_purple { border-color: rgba(168, 85, 247, 0.1); }
+.accent_purple:hover { border-color: rgba(168, 85, 247, 0.25); }
+.accent_purple::before { background: linear-gradient(90deg, #a855f7, transparent); }
+
+/* ===================== PILLAR TOP ===================== */
 .pillarTop {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .pillarLabel {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--cyan-400);
     background: rgba(0, 212, 255, 0.08);
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
 }
 
 .pillarIcon {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: rgba(0, 212, 255, 0.06);
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--cyan-400);
 }
 
+.icon_cyan    { background: rgba(0, 212, 255, 0.08); color: #00D4FF; }
+.icon_emerald { background: rgba(0, 230, 138, 0.08); color: #00E68A; }
+.icon_purple  { background: rgba(168, 85, 247, 0.08); color: #a855f7; }
+
+/* ===================== PILLAR TEXT ===================== */
 .pillarTitle {
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
-    color: var(--white);
-    margin-bottom: 14px;
+    color: #fff;
+    margin-bottom: 12px;
     line-height: 1.3;
 }
 
 .pillarDesc {
-    font-size: 15px;
-    color: var(--gray-400);
-    line-height: 1.7;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.75;
     margin-bottom: 28px;
 }
 
+/* ===================== METRIC ===================== */
 .metricBlock {
     display: flex;
     align-items: baseline;
     gap: 10px;
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .metricValue {
     font-family: var(--font-display);
-    font-size: 36px;
+    font-size: 34px;
     font-weight: 700;
-    color: var(--cyan-400);
     line-height: 1;
 }
 
+.metric_cyan    { color: #00D4FF; }
+.metric_emerald { color: #00E68A; }
+.metric_purple  { color: #a855f7; }
+
 .metricLabel {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gray-500);
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 900px) {
     .pillars {
         grid-template-columns: 1fr;
-        max-width: 500px;
+        max-width: 480px;
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .solution {
+        padding: 80px 0;
+    }
+
+    .inner {
+        padding: 0 24px;
+    }
+
+    .pillarCard {
+        padding: 28px 20px;
     }
 }
