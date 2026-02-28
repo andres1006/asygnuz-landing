@@ -1,13 +1,43 @@
+/* =====================================================
+   PAIN SECTION — CSS Module
+   Diseño 100% self-contained, sin dependencia de Tailwind containers
+   ===================================================== */
+
 .pain {
-    background: var(--navy-900);
+    position: relative;
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 120px 0;
+    overflow: hidden;
 }
 
+/* Fondo radial rojo sutil */
+.bgOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(220, 38, 38, 0.08), transparent 70%);
+    pointer-events: none;
+}
+
+/* Contenedor interno — max-width fijo, centrado sin depender de Tailwind */
+.inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+    box-sizing: border-box;
+}
+
+/* ===================== HEADER ===================== */
 .header {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: 72px;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s var(--ease-out-expo);
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header.visible {
@@ -15,23 +45,76 @@
     transform: translateY(0);
 }
 
+.pretitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f87171;
+    margin-bottom: 24px;
+}
+
+.pretitleLine {
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: rgba(248, 113, 113, 0.4);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5.5vw, 60px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+.titleAccent {
+    background: linear-gradient(135deg, #f87171, #fb923c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.subtitle strong {
+    color: #fff;
+}
+
+/* ===================== GRID ===================== */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
+/* ===================== CARD ===================== */
 .card {
     background: rgba(255, 77, 106, 0.03);
-    border: 1px solid rgba(255, 77, 106, 0.1);
+    border: 1px solid rgba(255, 77, 106, 0.12);
     border-radius: 20px;
     padding: 36px;
     position: relative;
-    transition: all 0.6s var(--ease-out-expo);
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(28px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease,
+                background 0.3s ease;
 }
 
 .card.visible {
@@ -40,35 +123,37 @@
 }
 
 .card:hover {
-    border-color: rgba(255, 77, 106, 0.25);
+    border-color: rgba(255, 77, 106, 0.28);
     background: rgba(255, 77, 106, 0.06);
     transform: translateY(-4px);
 }
 
+/* Icono */
 .iconWrapper {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
     background: rgba(255, 77, 106, 0.08);
+    border: 1px solid rgba(255, 77, 106, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--danger);
+    color: #f87171;
     position: relative;
 }
 
 .xBadge {
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: -7px;
+    right: -7px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--danger);
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 700;
+    background: #ef4444;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,19 +161,47 @@
 
 .cardTitle {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    color: var(--white);
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .cardDesc {
-    font-size: 15px;
-    color: var(--gray-400);
-    line-height: 1.7;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.75;
 }
 
+/* ===================== FOOTER ===================== */
+.footer {
+    margin-top: 64px;
+    text-align: center;
+    font-size: 15px;
+    color: #475569;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.7s;
+}
+
+.footer strong {
+    color: #fff;
+}
+
+.footerVisible {
+    opacity: 1;
+}
+
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
+    .pain {
+        padding: 80px 0;
+    }
+
+    .inner {
+        padding: 0 24px;
+    }
+
     .grid {
         grid-template-columns: 1fr;
     }
