@@ -5,78 +5,87 @@ import styles from "./SolutionSection.module.css";
 
 const pillars = [
     {
+        title: "Software Core",
+        desc: "Plataformas, SaaS e integraciones complejas. Arquitectura robusta, escalable y enfocada en conversiones ultrarrápidas.",
+        label: "Infraestructura",
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-400">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
             </svg>
         ),
-        label: "Pilar 01",
-        title: "Arquitectura de Alta Conversión",
-        desc: "Desarrollamos Landing Pages en código puro y frameworks modernos. Carga en milisegundos = Mayor retención = Menor costo por lead.",
-        metric: "< 1s",
-        metricLabel: "Page Load",
+        metricValue: "99.9%",
+        metricLabel: "Uptime"
     },
     {
+        title: "Autonomous AI",
+        desc: "Agentes de Inteligencia Artificial operativos 24/7. Automatización de flujos y atención pre-calificada sin intervención humana.",
+        label: "Agentes",
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
+                <rect x="2" y="10" width="20" height="10" rx="2" ry="2"/>
+                <path d="M12 10V4c0-1.1-.9-2-2-2H4"/>
+                <circle cx="12" cy="14" r="2"/>
             </svg>
         ),
-        label: "Pilar 02",
-        title: "Automatización de Flujos High-Ticket",
-        desc: "Conectamos tus campañas con tu CRM y calendarios. Creamos flujos que actúan como filtro automático y hook perfecto para pre-calificar.",
-        metric: "100%",
-        metricLabel: "Automatizado",
+        metricValue: "24/7",
+        metricLabel: "Operación"
     },
     {
+        title: "Growth & MarTech",
+        desc: "Adquisición técnica de alto rendimiento, optimización de conversión (CRO) y orquestación de datos y píxeles.",
+        label: "Adquisición",
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-400">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
             </svg>
         ),
-        label: "Pilar 03",
-        title: "Ecosistema de Datos (Tracking)",
-        desc: "Implementamos trazabilidad milimétrica. Sabrás exactamente de dónde viene cada dólar invertido.",
-        metric: "1:1",
-        metricLabel: "Atribución",
-    },
+        metricValue: "+300%",
+        metricLabel: "Conversión"
+    }
 ];
 
 export default function SolutionSection() {
     const { ref, isVisible } = useInView();
 
     return (
-        <section className={`section ${styles.solution}`} ref={ref}>
-            {/* Background accent */}
-            <div className={styles.bgAccent} />
-
-            <div className="container">
-                <div className={`${styles.header} ${isVisible ? styles.visible : ""}`}>
-                    <p className="section-pretitle">El Asygnuz Growth System</p>
-                    <h2 className="section-title">
-                        La diferencia de aplicar Ingeniería a tus Ventas
+        <section className={`py-24 relative border-t border-gray-800 ${styles.solution}`} ref={ref}>
+            <div className={styles.bgAccent}></div>
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+            
+            <div className="container mx-auto px-6 relative z-10">
+                <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white font-display tracking-tight">
+                        El <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Asygnuz</span> Growth System
                     </h2>
-                    <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                        No somos mercadólogos tradicionales. Somos Ingenieros de
-                        Crecimiento. Unimos el código duro con la psicología de ventas.
+                    <p className="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+                        Nuestra metodología patentada fusiona el desarrollo web de alta performance con ingeniería de adquisición y automatización con IA.
                     </p>
                 </div>
 
                 <div className={styles.pillars}>
                     {pillars.map((pillar, i) => (
-                        <div
-                            key={i}
-                            className={`${styles.pillarCard} ${isVisible ? styles.visible : ""}`}
-                            style={{ transitionDelay: `${0.2 * (i + 1)}s` }}
+                        <div 
+                            key={i} 
+                            className={`${styles.pillarCard} ${isVisible ? styles.visible : ''}`}
+                            style={{ transitionDelay: `${i * 0.15}s` }}
                         >
                             <div className={styles.pillarTop}>
-                                <span className={styles.pillarLabel}>{pillar.label}</span>
-                                <div className={styles.pillarIcon}>{pillar.icon}</div>
+                                <div className={styles.pillarIcon}>
+                                    {pillar.icon}
+                                </div>
+                                <div className={styles.pillarLabel}>
+                                    {pillar.label}
+                                </div>
                             </div>
+                            
                             <h3 className={styles.pillarTitle}>{pillar.title}</h3>
                             <p className={styles.pillarDesc}>{pillar.desc}</p>
+                            
                             <div className={styles.metricBlock}>
-                                <span className={styles.metricValue}>{pillar.metric}</span>
+                                <span className={styles.metricValue}>{pillar.metricValue}</span>
                                 <span className={styles.metricLabel}>{pillar.metricLabel}</span>
                             </div>
                         </div>
