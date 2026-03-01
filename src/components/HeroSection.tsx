@@ -34,14 +34,15 @@ export default function HeroSection() {
                 className="absolute inset-0 z-0 overflow-hidden"
                 style={{ y: yBackground, opacity: opacityBackground }}
             >
-                {/* Background Looping Video */}
+                {/* Background Looping Video - Forced for mobile */}
                 <video 
                     ref={videoRef}
                     autoPlay 
                     loop 
                     muted 
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none mix-blend-screen"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none mix-blend-screen"
+                    style={{ filter: "brightness(1.2)" }}
                 >
                     <source src="/hero-bg.mp4" type="video/mp4" />
                 </video>
