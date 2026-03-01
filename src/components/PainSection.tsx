@@ -47,22 +47,24 @@ const pains = [
 ];
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, perspective: 1000 },
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.15,
-            delayChildren: 0.2
+            staggerChildren: 0.2,
+            delayChildren: 0.1
         }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, scale: 0.8, rotateY: 30, y: 50 },
     visible: { 
         opacity: 1, 
+        scale: 1, 
+        rotateY: 0,
         y: 0, 
-        transition: { type: "spring", stiffness: 100, damping: 20 } 
+        transition: { type: "spring", stiffness: 70, damping: 15 } 
     }
 };
 

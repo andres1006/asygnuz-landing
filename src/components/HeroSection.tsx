@@ -60,9 +60,9 @@ export default function HeroSection() {
                 {/* Logo */}
                 <motion.div 
                     className={styles.logo}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
+                    animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+                    transition={{ duration: 1, type: "spring", bounce: 0.4 }}
                 >
                     <Image
                         src="/logos/AsygnuzLogo1-010.png"
@@ -77,9 +77,9 @@ export default function HeroSection() {
                 {/* Kicker */}
                 <motion.div 
                     className={styles.pretitle}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    initial={{ opacity: 0, scale: 1.5, filter: "blur(10px)" }}
+                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: "circOut" }}
                 >
                     INGENIERÍA APLICADA A LAS VENTAS
                 </motion.div>
@@ -87,9 +87,10 @@ export default function HeroSection() {
                 {/* H1 */}
                 <motion.h1 
                     className={styles.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: 50, scale: 0.9, rotateX: -20 }}
+                    animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                    transition={{ duration: 1, delay: 0.5, type: "spring", stiffness: 50 }}
+                    style={{ perspective: 1000 }}
                 >
                     No somos una agencia. <br />
                     Somos tu infraestructura de <span className={styles.highlight}>Growth Engineering</span>.
@@ -98,9 +99,9 @@ export default function HeroSection() {
                 {/* Sub-headline */}
                 <motion.p 
                     className={styles.subtitle}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.6 }}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
                 >
                     Integramos <strong>Desarrollo de Software</strong>, <strong>Agentes de Inteligencia Artificial</strong> y <strong>Performance Marketing</strong> para crear sistemas de ventas inquebrantables. Para empresas que hablan en serio.
                 </motion.p>
