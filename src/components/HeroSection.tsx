@@ -42,6 +42,7 @@ export default function HeroSection() {
                     style={{ filter: "brightness(1.5) contrast(1.2)", minHeight: "100%", minWidth: "100%" }}
                 >
                     <source src="/hero-bg.mp4" type="video/mp4" />
+                    <source src="/hero-bg.webm" type="video/webm" />
                 </video>
                 
                 {/* Moving Grid - The "Engine" look */}
