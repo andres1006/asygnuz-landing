@@ -1,43 +1,86 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import styles from "./HeroSection.module.css";
 import { useLeadModal } from "@/context/LeadModalContext";
 
 export default function HeroSection() {
-    const [loaded, setLoaded] = useState(false);
     const { openModal } = useLeadModal();
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const containerRef = useRef<HTMLElement>(null);
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end start"]
+    });
+
+    const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+    const opacityBackground = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
     useEffect(() => {
-        setLoaded(true);
+        if (videoRef.current) {
+            videoRef.current.play().catch(error => {
+                console.log("Video auto-play failed:", error);
+            });
+        }
     }, []);
 
     return (
-        <section className={styles.hero}>
-            {/* Background Looping Video */}
-            <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none mix-blend-screen"
-            >
-                <source src="/hero-bg.mp4" type="video/mp4" />
-            </video>
-            
-            {/* Fallback pattern */}
-            <div className={styles.gridBg}>
-                <div className={styles.gridLines} />
-            </div>
+        <section className={`${styles.hero} relative w-full overflow-hidden`} ref={containerRef}>
+            <div className="fixed inset-0 z-0 w-full h-full pointer-events-none bg-black">
+                {/* Background Looping Video - Forced for mobile */}
+                <video 
+                    ref={videoRef}
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    webkit-playsinline="true"
+                    className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
+                    style={{ filter: "brightness(2) contrast(1.3)", minHeight: "100%", minWidth: "100%" }}
+                >
+                    <source src="/hero-bg.mp4" type="video/mp4" />
+                    <source src="/hero-bg.webm" type="video/webm" />
+                </video>
+                
+                {/* Moving Grid - The "Engine" look */}
+                <div className={styles.gridBg}>
+                    <div className={styles.gridLines} />
+                </div>
 
-            {/* Glow orbs - Cyber Blue / Electric Green accents */}
-            <div className={styles.orbCyan} />
-            <div className={styles.orbNavy} />
+                {/* Glow orbs with Scroll + Auto animations */}
+                <motion.div 
+                    className={styles.orbCyan} 
+                    animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.5, 0.3],
+                        x: [0, 50, 0],
+                        y: [0, -30, 0]
+                    }}
+                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div 
+                    className={styles.orbNavy} 
+                    animate={{ 
+                        scale: [1, 1.3, 1],
+                        opacity: [0.4, 0.7, 0.4],
+                        x: [0, -40, 0],
+                        y: [0, 40, 0]
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+            </div>
 
             <div className={`container mx-auto px-6 relative z-10 flex flex-col items-center justify-center ${styles.content}`}>
                 {/* Logo */}
-                <div className={`${styles.logo} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.logo}
+                    initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
+                    animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+                    transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+                >
                     <Image
                         src="/logos/AsygnuzLogo1-010.png"
                         alt="Asygnuz"
@@ -46,26 +89,49 @@ export default function HeroSection() {
                         priority
                         style={{ filter: "invert(1)", objectFit: "contain" }}
                     />
-                </div>
+                </motion.div>
 
                 {/* Kicker */}
-                <div className={`${styles.pretitle} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.pretitle}
+                    initial={{ opacity: 0, scale: 1.5, filter: "blur(10px)" }}
+                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: "circOut" }}
+                >
                     INGENIERÍA APLICADA A LAS VENTAS
-                </div>
+                </motion.div>
 
                 {/* H1 */}
-                <h1 className={`${styles.title} ${loaded ? styles.visible : ""}`}>
+                <motion.h1 
+                    className={styles.title}
+                    initial={{ opacity: 0, y: 50, scale: 0.9, rotateX: -20 }}
+                    animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                    transition={{ duration: 1, delay: 0.5, type: "spring", stiffness: 50 }}
+                    style={{ perspective: 1000 }}
+                >
                     No somos una agencia. <br />
                     Somos tu infraestructura de <span className={styles.highlight}>Growth Engineering</span>.
-                </h1>
+                </motion.h1>
 
                 {/* Sub-headline */}
-                <p className={`${styles.subtitle} ${loaded ? styles.visible : ""}`}>
+                <motion.p 
+                    className={styles.subtitle}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                >
                     Integramos <strong>Desarrollo de Software</strong>, <strong>Agentes de Inteligencia Artificial</strong> y <strong>Performance Marketing</strong> para crear sistemas de ventas inquebrantables. Para empresas que hablan en serio.
-                </p>
+                </motion.p>
 
                 {/* CTA */}
-                <div className={`${styles.ctaWrapper} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.ctaWrapper}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1 }}
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 212, 255, 0.4)" }}
+                    whileTap={{ scale: 0.95 }}
+                >
                     <button 
                         className="cta-button"
                         onClick={openModal}
@@ -75,13 +141,18 @@ export default function HeroSection() {
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </button>
-                </div>
+                </motion.div>
 
                 {/* Social Proof */}
-                <div className={`${styles.trustBadge} ${loaded ? styles.visible : ""}`}>
+                <motion.div 
+                    className={styles.trustBadge}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.4 }}
+                >
                     <div className={styles.trustDot}></div>
                     <span>Procesando millones en transacciones a través de nuestra tecnología</span>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

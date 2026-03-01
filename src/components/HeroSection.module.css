@@ -62,14 +62,6 @@
 /* Logo */
 .logo {
     margin-bottom: 40px;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.8s var(--ease-out-expo);
-}
-
-.logo.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Pre-title */
@@ -85,14 +77,6 @@
     border-radius: 30px;
     display: inline-block;
     background: rgba(0, 212, 255, 0.05);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s var(--ease-out-expo) 0.15s;
-}
-
-.pretitle.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Title */
@@ -103,14 +87,6 @@
     line-height: 1.1;
     margin-bottom: 28px;
     color: var(--white);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.9s var(--ease-out-expo) 0.3s;
-}
-
-.title.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .highlight {
@@ -127,14 +103,6 @@
     line-height: 1.7;
     max-width: 720px;
     margin: 0 auto 44px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.9s var(--ease-out-expo) 0.45s;
-}
-
-.subtitle.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .subtitle strong {
@@ -144,14 +112,6 @@
 /* CTA Wrapper */
 .ctaWrapper {
     margin-bottom: 32px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.9s var(--ease-out-expo) 0.6s;
-}
-
-.ctaWrapper.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Trust Badge */
@@ -161,12 +121,6 @@
     gap: 8px;
     font-size: 13px;
     color: var(--gray-500);
-    opacity: 0;
-    transition: opacity 0.8s ease 0.8s;
-}
-
-.trustBadge.visible {
-    opacity: 1;
 }
 
 .trustDot {
@@ -182,7 +136,7 @@
 @media (max-width: 768px) {
     .hero {
         padding: 40px 0;
-        min-height: auto;
+        min-height: 100vh;
         padding-top: 80px;
         padding-bottom: 80px;
     }

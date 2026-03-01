@@ -1,3 +1,6 @@
+"use client";
+
+import SectionWrapper from "@/components/SectionWrapper";
 import HeroSection from "@/components/HeroSection";
 import VSLSection from "@/components/VSLSection";
 import PainSection from "@/components/PainSection";
@@ -8,19 +11,30 @@ import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-black">
+      {/* Hero no lleva wrapper para que cargue instantáneo */}
       <HeroSection />
-      <div className="section-divider" />
-      <VSLSection />
-      <div className="section-divider" />
-      <PainSection />
-      <div className="section-divider" />
-      <SolutionSection />
-      <div className="section-divider" />
-      <SocialProofSection />
-      <div className="section-divider" />
-      <FilterSection />
-      <div className="section-divider" />
+      
+      <SectionWrapper>
+        <VSLSection />
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <PainSection />
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <SolutionSection />
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <SocialProofSection />
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <FilterSection />
+      </SectionWrapper>
+
       <FooterSection />
     </main>
   );

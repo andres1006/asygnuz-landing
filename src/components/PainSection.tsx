@@ -1,6 +1,6 @@
 "use client";
 
-import { useInView } from "@/hooks/useInView";
+import { motion, Variants } from "framer-motion";
 import styles from "./PainSection.module.css";
 
 const pains = [
@@ -46,17 +46,43 @@ const pains = [
     }
 ];
 
-export default function PainSection() {
-    const { ref, isVisible } = useInView();
+const containerVariants: Variants = {
+    hidden: { opacity: 0, perspective: 1000 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.1
+        }
+    }
+};
 
+const itemVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, rotateY: 30, y: 50 },
+    visible: { 
+        opacity: 1, 
+        scale: 1, 
+        rotateY: 0,
+        y: 0, 
+        transition: { type: "spring", stiffness: 70, damping: 15 } 
+    }
+};
+
+export default function PainSection() {
     return (
-        <section className={styles.pain} ref={ref}>
+        <section className={styles.pain}>
             {/* Fondo radial rojo */}
             <div className={styles.bgOverlay}></div>
 
             <div className={styles.inner}>
                 {/* Header */}
-                <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
+                <motion.div 
+                    className={styles.header}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                >
                     <p className={styles.pretitle}>
                         <span className={styles.pretitleLine}></span>
                         El Problema Real
@@ -69,15 +95,21 @@ export default function PainSection() {
                     <p className={styles.subtitle}>
                         Deja de perder millones en estrategias obsoletas. La infraestructura de marketing tradicional es un lastre. Necesitas un <strong>motor</strong>, no una colección de parches.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Grid de dolores */}
-                <div className={styles.grid}>
-                    {pains.map((pain, i) => (
-                        <div
-                            key={i}
-                            className={`${styles.card} ${isVisible ? styles.visible : ''}`}
-                            style={{ transitionDelay: `${i * 0.15}s` }}
+                <motion.div 
+                    className={styles.grid}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                >
+                    {pains.map((pain) => (
+                        <motion.div
+                            key={pain.title}
+                            className={styles.card}
+                            variants={itemVariants}
                         >
                             <div className={styles.iconWrapper}>
                                 {pain.icon}
@@ -85,14 +117,20 @@ export default function PainSection() {
                             </div>
                             <h3 className={styles.cardTitle}>{pain.title}</h3>
                             <p className={styles.cardDesc}>{pain.desc}</p>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Footer */}
-                <div className={`${styles.footer} ${isVisible ? styles.footerVisible : ''}`}>
+                <motion.div 
+                    className={styles.footer}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                >
                     <p>La diferencia entre liderar y seguir radica en tu capacidad de <strong>ingeniería</strong>.</p>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
