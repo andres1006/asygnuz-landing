@@ -29,11 +29,7 @@ export default function HeroSection() {
 
     return (
         <section className={`${styles.hero} relative w-full overflow-hidden bg-black`} ref={containerRef}>
-            {/* Background Container with Motion for Scroll effects */}
-            <motion.div 
-                className="absolute inset-0 z-0 overflow-hidden w-full h-full pointer-events-none"
-                style={{ y: yBackground, opacity: opacityBackground }}
-            >
+            <div className="absolute inset-0 z-0 overflow-hidden w-full h-full pointer-events-none bg-black">
                 {/* Background Looping Video - Forced for mobile */}
                 <video 
                     ref={videoRef}
@@ -42,7 +38,7 @@ export default function HeroSection() {
                     muted 
                     playsInline
                     webkit-playsinline="true"
-                    className="absolute inset-0 w-full h-full object-cover opacity-100 mix-blend-screen"
+                    className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
                     style={{ filter: "brightness(1.5) contrast(1.2)", minHeight: "100%", minWidth: "100%" }}
                 >
                     <source src="/hero-bg.mp4" type="video/mp4" />
@@ -74,7 +70,7 @@ export default function HeroSection() {
                     }}
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 />
-            </motion.div>
+            </div>
 
             <div className={`container mx-auto px-6 relative z-10 flex flex-col items-center justify-center ${styles.content}`}>
                 {/* Logo */}
