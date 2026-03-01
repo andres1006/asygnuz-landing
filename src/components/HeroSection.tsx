@@ -28,10 +28,10 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className={`${styles.hero} relative w-full h-screen overflow-hidden bg-black`} ref={containerRef}>
+        <section className={`${styles.hero} relative w-full overflow-hidden bg-black`} ref={containerRef}>
             {/* Background Container with Motion for Scroll effects */}
             <motion.div 
-                className="absolute inset-0 z-0 overflow-hidden w-full h-full"
+                className="absolute inset-0 z-0 overflow-hidden w-full h-full pointer-events-none"
                 style={{ y: yBackground, opacity: opacityBackground }}
             >
                 {/* Background Looping Video - Forced for mobile */}
@@ -41,8 +41,9 @@ export default function HeroSection() {
                     loop 
                     muted 
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen pointer-events-none"
-                    style={{ filter: "brightness(1.5) contrast(1.2)" }}
+                    webkit-playsinline="true"
+                    className="absolute inset-0 w-full h-full object-cover opacity-100 mix-blend-screen"
+                    style={{ filter: "brightness(1.5) contrast(1.2)", minHeight: "100%", minWidth: "100%" }}
                 >
                     <source src="/hero-bg.mp4" type="video/mp4" />
                 </video>
