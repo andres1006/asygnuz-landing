@@ -27,7 +27,6 @@ export default function HeroSection() {
                 loop 
                 muted 
                 playsInline
-                defaultMuted
                 className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none mix-blend-screen"
             >
                 <source src="/hero-bg.mp4" type="video/mp4" />
