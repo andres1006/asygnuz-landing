@@ -12,7 +12,8 @@ export default function FooterSection() {
                             alt="Asygnuz"
                             width={120}
                             height={50}
-                            style={{ filter: "invert(1)", objectFit: "contain" }}
+                            className="brightness-0 invert opacity-90"
+                            priority
                         />
                         <p className={styles.tagline}>
                             Ingeniería de Crecimiento para empresas que quieren escalar.

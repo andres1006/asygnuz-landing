@@ -4,8 +4,6 @@
    ASYGNUZ - Global Design System
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 /* Font Faces - Salvatore */
 @font-face {
   font-family: 'Salvatore';
@@ -82,48 +80,47 @@
 /* ========================================
    Reset & Base
    ======================================== */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    font-family: var(--font-body);
+    background: var(--navy-900);
+    color: var(--gray-200);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-body {
-  font-family: var(--font-body);
-  background: var(--navy-900);
-  color: var(--gray-200);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  color: var(--white);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
+  a {
+    color: var(--cyan-400);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
 
-a {
-  color: var(--cyan-400);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+  a:hover {
+    color: var(--cyan-500);
+  }
 
-a:hover {
-  color: var(--cyan-500);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* ========================================
@@ -246,6 +243,7 @@ img {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -253,28 +251,57 @@ img {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 30px var(--cyan-glow); }
-  50% { box-shadow: 0 0 50px var(--cyan-glow-strong); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 30px var(--cyan-glow);
+  }
+
+  50% {
+    box-shadow: 0 0 50px var(--cyan-glow-strong);
+  }
 }
 
 @keyframes grid-move {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(60px, 60px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(60px, 60px);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .animate-in {
@@ -289,11 +316,25 @@ img {
 }
 
 /* Staggered delays */
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
-.delay-5 { transition-delay: 0.5s; }
+.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.delay-5 {
+  transition-delay: 0.5s;
+}
 
 /* ========================================
    Custom Scrollbar

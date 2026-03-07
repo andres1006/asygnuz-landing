@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Proposal {
+  id               String   @id @default(uuid())
+  clientName       String
+  clientCompany    String
+  clientRole       String?
+  clientEmail      String?
+
+  projectName      String
+  projectObjective String
+
+  currentSituation String
+  mainChallenges   String // JSON Array
+
+  proposedSolution String
+  expectedOutcomes String // JSON Array
+
+  timelineMonths   Int
+  phases           String // JSON Array of Phase objects
+
+  totalInvestment  Float
+  roiPercentage    Float
+  costOfInaction   Float
+  deliverables     String? // JSON Array
+
+  createdAt        DateTime @default(now())
+  expiresAt        DateTime
+}
