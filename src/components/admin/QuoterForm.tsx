@@ -6,6 +6,7 @@ import type { IconType } from 'react-icons';
 import { FiAlertTriangle, FiBarChart2, FiCheck, FiClipboard, FiCompass, FiExternalLink, FiTarget, FiUser } from 'react-icons/fi';
 import { createProposalAction } from '@/app/actions/proposal.actions';
 import { CreateProposalDTO } from '@/types/proposal';
+import { toast } from 'sonner';
 
 const PREVIEW_EVENT_NAME = 'asygnuz-proposal-preview-update';
 
@@ -257,11 +258,18 @@ export default function QuoterForm() {
             const result = await createProposalAction(dataToSubmit);
             if (result.success) {
                 setResultUrl(`${window.location.origin}/propuesta/${result.id}`);
+                toast.success('¡Propuesta generada exitosamente!', {
+                    description: 'Ya puedes copiar el enlace y compartirlo con el cliente.',
+                });
             } else {
-                alert(result.error);
+                toast.error('Error al crear propuesta', {
+                    description: result.error || 'Ocurrió un error inesperado.',
+                });
             }
-        } catch {
-            alert('Error al enviar');
+        } catch (err) {
+            toast.error('Error de conexión', {
+                description: 'No se pudo conectar con el servidor. Intenta de nuevo.',
+            });
         } finally {
             setLoading(false);
         }

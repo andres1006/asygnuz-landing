@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import LeadModal from "@/components/LeadModal";
 import { LeadModalProvider } from "@/context/LeadModalContext";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: "Asygnuz | Infraestructura de Growth Engineering",
@@ -87,6 +88,7 @@ export default function RootLayout({
           {children}
           <LeadModal />
         </LeadModalProvider>
+        <Toaster theme="dark" richColors position="top-right" />
       </body>
     </html>
   );

@@ -7,11 +7,23 @@ import { ADMIN_PASSWORD } from '@/lib/constants';
 
 export async function createProposalAction(data: CreateProposalDTO) {
     try {
+        // Validate required fields before hitting DB
+        if (!data.clientName?.trim() || !data.clientCompany?.trim()) {
+            return { success: false, error: 'Nombre del cliente y empresa son requeridos.' };
+        }
+        if (!data.projectName?.trim() || !data.projectObjective?.trim()) {
+            return { success: false, error: 'Nombre del proyecto y objetivo son requeridos.' };
+        }
+
         const proposal = await ProposalService.createProposal(data);
         return { success: true, id: proposal.id };
     } catch (error) {
-        console.error('Error creating proposal:', error);
-        return { success: false, error: 'Ocurrió un error al crear la propuesta' };
+        const message = error instanceof Error ? error.message : String(error);
+        console.error('Error creating proposal:', message, error);
+        return {
+            success: false,
+            error: `Error al crear la propuesta: ${message}`
+        };
     }
 }
 
