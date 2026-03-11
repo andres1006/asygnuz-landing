@@ -111,6 +111,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ESPEJO v4.0 — Design Tokens */
+  --bg-void: #000000;
+  --bg-deep: #0A0E17;
+  --bg-navy: #183057;
+  --bg-panel: #1A2A3A;
+  --accent-gold: #C9A84C;
+  --text-green: #4EC94E;
 }
 
 /* ========================================
@@ -159,6 +167,7 @@
     max-width: 100%;
     height: auto;
   }
+
   * {
     @apply border-border outline-ring/50;
   }
