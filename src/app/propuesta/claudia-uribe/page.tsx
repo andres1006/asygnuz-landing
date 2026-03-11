@@ -95,7 +95,7 @@ export default function ClaudiaUribePropuesta() {
 
 
                 {/* HERO — fixed title with zoom-out */}
-                <section id="hero" className="relative z-10 bg-[#183057]">
+                <section id="hero" className="relative z-10 bg-[#F8FAFC]">
                     <HeroSection isAudioReady={isStarted} onInitAudio={handleStart} />
                 </section>
 
@@ -151,26 +151,31 @@ export default function ClaudiaUribePropuesta() {
 
                 {/* HUD Navigation — always dark theme */}
                 {isStarted && (
-                    <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-3">
-                        {SECTIONS.map((s) => (
-                            <button
-                                key={s.id}
-                                onClick={() => scrollToSection(s.id)}
-                                className="group flex items-center gap-3"
-                            >
-                                <span className={`text-[9px] font-mono tracking-[0.2em] transition-all duration-500 ${activeSection === s.id
-                                    ? 'text-[#183057] opacity-100'
-                                    : 'text-[#183057]/0 group-hover:text-[#183057]/40 opacity-0 group-hover:opacity-100'
-                                    }`}>
-                                    {s.label}
-                                </span>
-                                <span className={`block rounded-full transition-all duration-500 ${activeSection === s.id
-                                    ? 'w-3 h-3 bg-[#183057] shadow-[0_0_12px_rgba(24,48,87,0.4)]'
-                                    : 'w-1.5 h-1.5 bg-[#183057]/20 group-hover:bg-[#183057]/40'
-                                    }`} />
-                            </button>
-                        ))}
-                    </nav>
+                    <>
+                        <div className="fixed left-8 top-8 z-50">
+                            <img src="/logos/AsygnuzLogo1-010.png" alt="Asygnuz" className="h-8 md:h-10 object-contain" />
+                        </div>
+                        <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-3">
+                            {SECTIONS.map((s) => (
+                                <button
+                                    key={s.id}
+                                    onClick={() => scrollToSection(s.id)}
+                                    className="group flex items-center gap-3"
+                                >
+                                    <span className={`text-[9px] font-mono tracking-[0.2em] transition-all duration-500 ${activeSection === s.id
+                                        ? 'text-[#183057] opacity-100'
+                                        : 'text-[#183057]/0 group-hover:text-[#183057]/40 opacity-0 group-hover:opacity-100'
+                                        }`}>
+                                        {s.label}
+                                    </span>
+                                    <span className={`block rounded-full transition-all duration-500 ${activeSection === s.id
+                                        ? 'w-3 h-3 bg-[#183057] shadow-[0_0_12px_rgba(24,48,87,0.4)]'
+                                        : 'w-1.5 h-1.5 bg-[#183057]/20 group-hover:bg-[#183057]/40'
+                                        }`} />
+                                </button>
+                            ))}
+                        </nav>
+                    </>
                 )}
             </main>
         </SmoothScroll>
