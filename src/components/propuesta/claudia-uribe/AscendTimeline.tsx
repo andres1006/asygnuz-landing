@@ -32,7 +32,7 @@ const PHASES = [
     {
         letter: 'D', title: "DIGITAL HANDOFF", phase: "TRANSFER · Mes 14+", color: "#10B981",
         content: "Tu propia agencia interna operando con autonomía y eficiencia. Carlos asume el rol formal como Tech Lead. Asygnuz permanece solo en gobernanza estratégica trimestral.",
-        deliverables: ["Agencia in-house activa", "Nuevo rol: Tech Lead", "Gobernanza trimestral", "Manuales operativos"]
+        deliverables: ["Agencia in-house activa", "Área TIC in-house", "Gobernanza trimestral", "Manuales operativos"]
     },
 ];
 

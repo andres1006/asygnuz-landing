@@ -143,14 +143,14 @@ export default function BentoProof() {
                             </div>
                         </div>
                         <p className="text-[11px] font-mono tracking-widest text-[#183057]/40 uppercase mt-4 font-bold">CTR de Inicio a Formulario</p>
-                        <p className="text-sm text-[#183057]/60 mt-1 font-black">18 Leads B2B Generados</p>
+                        <p className="text-sm text-[#183057]/60 mt-1 font-black">18 Leads Generados</p>
                     </div>
                 </div>
 
                 {/* BAR CHART: Sessions (Spans 6 cols) */}
                 <div className="md:col-span-6 bg-[#ffffff] rounded-3xl p-6 border border-[#1a1a2e]/[0.04] shadow-[0_4px_20px_rgb(0,0,0,0.02)] flex flex-col justify-between">
                     <div>
-                        <p className="text-[11px] font-mono tracking-widest text-[#1a1a2e]/50 uppercase">Volumen de Sesiones</p>
+                        <p className="text-[11px] font-mono tracking-widest text-[#1a1a2e]/50 uppercase">Volumen Sesiones Iniciadas</p>
                         <div className="text-3xl font-bold text-[#1a1a2e] mt-1 tabular-nums flex items-baseline gap-2">
                             <span className="bento-counter" data-value="1157">1,157</span>
                             <span className="text-sm font-normal text-[#1a1a2e]/40">total</span>
@@ -199,7 +199,7 @@ export default function BentoProof() {
                     </div>
                     <p className="text-[11px] font-mono tracking-widest text-[#183057]/40 uppercase z-10 font-bold">Integraciones Activas</p>
                     <div className="mt-3 flex gap-1 z-10">
-                        {['HubSpot', 'Stripe', 'Calendly'].map((tool) => (
+                        {['Clint', 'Calendar', 'Meta', 'SendGrid'].map((tool) => (
                             <span key={tool} className="text-[9px] bg-[#183057]/10 px-2 py-0.5 rounded-full text-[#183057]/60 font-bold">{tool}</span>
                         ))}
                     </div>

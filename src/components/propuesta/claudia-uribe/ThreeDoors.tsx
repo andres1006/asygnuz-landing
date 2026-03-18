@@ -109,10 +109,10 @@ export default function ThreeDoors() {
                             </li>
                         </ul>
 
-                        <div className="mt-8 p-6 bg-[#183057]/5 border border-[#183057]/10 rounded-2xl">
+                        {/* <div className="mt-8 p-6 bg-[#183057]/5 border border-[#183057]/10 rounded-2xl">
                             <p className="text-[#183057]/40 font-mono text-[10px] uppercase tracking-wider mb-1 font-bold">Inversión Total Proyectada (18 Meses)</p>
                             <p className="text-[#183057] font-black text-2xl">~$24,600 USD</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -129,10 +129,10 @@ export default function ThreeDoors() {
                             <span className="text-[9px] font-mono tracking-widest text-[#1a1a2e]/30 uppercase">Dependencia Externa</span>
                         </div>
                         <h3 className="text-xl font-bold text-[#1a1a2e] mb-1">Agencia / Outsourcing</h3>
-                        <p className="text-lg font-black text-[#1a1a2e]/60 mb-6">$1,200 – $1,500 <span className="text-sm font-medium">USD/mes</span></p>
+                        <p className="text-lg font-black text-[#1a1a2e]/60 mb-6">$1,800 <span className="text-sm font-medium">USD/mes</span></p>
                         <div className="space-y-3 text-sm">
-                            <p className="text-[#1a1a2e]/70"><strong className="text-[#1a1a2e]/90">Duración:</strong> Indefinida (pago eterno)</p>
-                            <p className="text-[#1a1a2e]/70 leading-relaxed"><strong className="text-[#1a1a2e]/90">Trampa:</strong> Resuelve el problema hoy, pero no construyes infraestructura. El know-how pertenece a la agencia.</p>
+                            <p className="text-[#1a1a2e]/70"><strong className="text-[#1a1a2e]/90">Duración:</strong> Indefinida, con revisión anual</p>
+                            <p className="text-[#1a1a2e]/70 leading-relaxed"><strong className="text-[#1a1a2e]/90">Modelo:</strong> Departamento externo de IT, marketing y estrategia digital</p>
                         </div>
                     </div>
 
@@ -146,10 +146,10 @@ export default function ThreeDoors() {
                             <span className="text-[9px] font-mono tracking-widest text-[#1a1a2e]/30 uppercase">Liderazgo Aislado</span>
                         </div>
                         <h3 className="text-xl font-bold text-[#1a1a2e] mb-1">Fractional Leadership</h3>
-                        <p className="text-lg font-black text-[#1a1a2e]/60 mb-6">$800 – $1,000 <span className="text-sm font-medium">USD/mes</span></p>
+                        <p className="text-lg font-black text-[#1a1a2e]/60 mb-6">$1,000 <span className="text-sm font-medium">USD/mes Cada Uno</span></p>
                         <div className="space-y-3 text-sm">
                             <p className="text-[#1a1a2e]/70"><strong className="text-[#1a1a2e]/90">Rol:</strong> Solo directores estratégicos.</p>
-                            <p className="text-[#1a1a2e]/70 leading-relaxed"><strong className="text-[#1a1a2e]/90">Riesgo:</strong> Quien ejecuta es Claudia o un equipo interno inexperto. Excelente mapa, pero sin vehículo para recorrerlo.</p>
+                            <p className="text-[#1a1a2e]/70 leading-relaxed"><strong className="text-[#1a1a2e]/90">Modelo:</strong> Costos operativos (equipo necesario) a cargo de la marca. Nuestras funciones seran Fractional CTO + Fractional Growth Director </p>
                         </div>
                     </div>
 

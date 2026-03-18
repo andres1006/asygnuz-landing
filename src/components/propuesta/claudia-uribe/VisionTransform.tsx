@@ -25,9 +25,9 @@ const TRANSFORMATIONS = [
     },
     {
         icon: <Users className="w-5 h-5" />,
-        label: "GESTIÓN DE COACHES",
-        today: "43 coaches gestionados en Excel",
-        future: "Sistema automatizado: comisiones, leads, trazabilidad y resultados",
+        label: "GESTIÓN DE MONEY STRATEGIST",
+        today: "Money strategist desentralizados",
+        future: "Sistema automatizado e integrado: Software de comisiones, leads, trazabilidad y resultados",
         color: "#93C5FD"
     },
     {
@@ -41,13 +41,13 @@ const TRANSFORMATIONS = [
         icon: <Briefcase className="w-5 h-5" />,
         label: "AGENCIA INTERNA",
         today: "Sin agencia interna propia",
-        future: "Agencia interna operando: trafikker, diseñador, community manager",
+        future: "Agencia interna operando: Crecimeinto Craks, marca MIA, Money strategist",
         color: "#93C5FD"
     },
     {
         icon: <Brain className="w-5 h-5" />,
         label: "ZONA DE GENIO",
-        today: "Claudia es el cuello de botella operativo",
+        today: "La marca depende del tiempo de Claudia",
         future: "Claudia en su Zona de Genio: estrategia, contenido y expansión",
         color: "#60A5FA"
     },
@@ -68,8 +68,8 @@ const TRANSFORMATIONS = [
     {
         icon: <CheckCircle2 className="w-5 h-5" />,
         label: "COHERENCIA",
-        today: "Paradoja: enseña estructura, opera en caos",
-        future: "Coherencia total: la empresa vive lo que Claudia enseña",
+        today: "Cesar como asesor de arquitectura empresarial",
+        future: "Entrega de estrategia por procesos (TOGAF)",
         color: "#93C5FD"
     },
 ];

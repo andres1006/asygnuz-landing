@@ -214,7 +214,7 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
                         </motion.div>
 
                         <div className="text-center leading-[0.85]" style={{ fontFamily: "'Inter', sans-serif" }}>
-                            <span className="block text-6xl md:text-9xl lg:text-[140px] font-black text-[#183057]/[0.9] tracking-[-0.03em]">M.I.A</span>
+                            <span className="block text-6xl md:text-9xl lg:text-[140px] font-black text-[#183057]/[0.9] tracking-[-0.03em]">MIA</span>
                             <span className="block text-2xl md:text-3xl lg:text-[60px] font-black text-[#183057]/[0.7] tracking-[-0.03em]">CLAUDIA URIBE</span>
                         </div>
 
@@ -293,7 +293,7 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
                             <div className="hero-details mt-8 flex flex-col items-center">
                                 <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#183057]/20 to-transparent mb-6" />
                                 <p className="hero-sub font-mono text-sm md:text-base tracking-[0.3em] text-[#183057]/60 uppercase">
-                                    M.I.A (Claudia Uribe)
+                                    MIA (Claudia Uribe)
                                 </p>
                                 <p className="hero-sub text-[11px] font-mono tracking-[0.25em] text-[#183057]/40 uppercase mt-2">
                                     Programa de Transformación Digital · Construcción de Agencia Interna

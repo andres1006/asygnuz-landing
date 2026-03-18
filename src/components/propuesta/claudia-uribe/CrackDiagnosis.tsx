@@ -29,16 +29,16 @@ const PARADOXES = [
         bg: "white",
     },
     {
-        teach: "\"No se salta ningún paso.\"",
-        live: "El crecimiento saltó pasos estructurales críticos.",
-        icon: "⚡",
+        teach: "\"Tu método no debe depender de tu figura.\"",
+        live: "La operación aun es muy Claudiadependiente.",
+        icon: "🎯",
         color: "#2C4B7D",
         bg: "white",
     },
     {
-        teach: "\"Tu método no debe depender de tu figura.\"",
-        live: "La operación colapsa si Claudia no está presente.",
-        icon: "🎯",
+        teach: "\"Diciendo y haciendo.\"",
+        live: "La ventana de preparación es ahora. No cuando el volumen ya llegó y la crisis ya empezó.",
+        icon: "⚠️",
         color: "#183057",
         bg: "white",
     },
@@ -105,7 +105,7 @@ export default function CrackDiagnosis() {
                                 <div className="flex items-center gap-2 mb-2">
                                     <span className="text-lg">{p.icon}</span>
                                     <span className="text-[10px] font-mono tracking-[0.2em] uppercase font-bold" style={{ color: p.color }}>
-                                        Lo que Claudia enseña
+                                        Filosofía de la marca
                                     </span>
                                 </div>
                                 <p className="text-[#183057] text-base lg:text-lg font-semibold leading-snug">
@@ -116,7 +116,7 @@ export default function CrackDiagnosis() {
                             {/* REALITY */}
                             <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-[#183057]/5">
                                 <p className="text-[10px] font-mono tracking-[0.2em] text-[#183057]/40 uppercase mb-2">
-                                    Lo que la empresa vive
+                                    Oportunidad de mejora
                                 </p>
                                 <p className="text-sm lg:text-base font-medium leading-normal" style={{ color: p.color }}>
                                     {p.live}
