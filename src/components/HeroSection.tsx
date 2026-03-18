@@ -31,11 +31,11 @@ export default function HeroSection() {
         <section className={`${styles.hero} relative w-full overflow-hidden`} ref={containerRef}>
             <div className="fixed inset-0 z-0 w-full h-full pointer-events-none bg-black">
                 {/* Background Looping Video - Forced for mobile */}
-                <video 
+                <video
                     ref={videoRef}
-                    autoPlay 
-                    loop 
-                    muted 
+                    autoPlay
+                    loop
+                    muted
                     playsInline
                     webkit-playsinline="true"
                     className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
@@ -44,16 +44,16 @@ export default function HeroSection() {
                     <source src="/hero-bg.mp4" type="video/mp4" />
                     <source src="/hero-bg.webm" type="video/webm" />
                 </video>
-                
+
                 {/* Moving Grid - The "Engine" look */}
                 <div className={styles.gridBg}>
                     <div className={styles.gridLines} />
                 </div>
 
                 {/* Glow orbs with Scroll + Auto animations */}
-                <motion.div 
-                    className={styles.orbCyan} 
-                    animate={{ 
+                <motion.div
+                    className={styles.orbCyan}
+                    animate={{
                         scale: [1, 1.2, 1],
                         opacity: [0.3, 0.5, 0.3],
                         x: [0, 50, 0],
@@ -61,9 +61,9 @@ export default function HeroSection() {
                     }}
                     transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
                 />
-                <motion.div 
-                    className={styles.orbNavy} 
-                    animate={{ 
+                <motion.div
+                    className={styles.orbNavy}
+                    animate={{
                         scale: [1, 1.3, 1],
                         opacity: [0.4, 0.7, 0.4],
                         x: [0, -40, 0],
@@ -75,7 +75,7 @@ export default function HeroSection() {
 
             <div className={`container mx-auto px-6 relative z-10 flex flex-col items-center justify-center ${styles.content}`}>
                 {/* Logo */}
-                <motion.div 
+                <motion.div
                     className={styles.logo}
                     initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
                     animate={{ opacity: 1, scale: 1, rotateX: 0 }}
@@ -84,15 +84,15 @@ export default function HeroSection() {
                     <Image
                         src="/logos/AsygnuzLogo1-010.png"
                         alt="Asygnuz"
-                        width={160}
+                        width={460}
                         height={70}
+                        className="brightness-0 invert opacity-90"
                         priority
-                        style={{ filter: "invert(1)", objectFit: "contain" }}
                     />
                 </motion.div>
 
                 {/* Kicker */}
-                <motion.div 
+                <motion.div
                     className={styles.pretitle}
                     initial={{ opacity: 0, scale: 1.5, filter: "blur(10px)" }}
                     animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -102,7 +102,7 @@ export default function HeroSection() {
                 </motion.div>
 
                 {/* H1 */}
-                <motion.h1 
+                <motion.h1
                     className={styles.title}
                     initial={{ opacity: 0, y: 50, scale: 0.9, rotateX: -20 }}
                     animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
@@ -114,7 +114,7 @@ export default function HeroSection() {
                 </motion.h1>
 
                 {/* Sub-headline */}
-                <motion.p 
+                <motion.p
                     className={styles.subtitle}
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -124,7 +124,7 @@ export default function HeroSection() {
                 </motion.p>
 
                 {/* CTA */}
-                <motion.div 
+                <motion.div
                     className={styles.ctaWrapper}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -132,19 +132,19 @@ export default function HeroSection() {
                     whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 212, 255, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    <button 
+                    <button
                         className="cta-button"
                         onClick={openModal}
                     >
                         <span>Desbloquea tu Infraestructura de Ventas</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </button>
                 </motion.div>
 
                 {/* Social Proof */}
-                <motion.div 
+                <motion.div
                     className={styles.trustBadge}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
