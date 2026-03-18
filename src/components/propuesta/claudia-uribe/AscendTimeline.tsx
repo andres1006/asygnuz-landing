@@ -52,7 +52,7 @@ const containerVariants = {
             delayChildren: 0.2
         }
     }
-};
+} as const;
 
 const itemVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
@@ -62,7 +62,7 @@ const itemVariants = {
         scale: 1,
         transition: { duration: 0.8, ease: "easeOut" }
     }
-};
+} as const;
 
 export default function AscendTimeline() {
     return (

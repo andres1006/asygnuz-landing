@@ -6,13 +6,14 @@ import ProposalView from '@/components/proposal/ProposalView';
 export const dynamic = 'force-dynamic';
 
 interface Props {
-    params: {
+    params: Promise<{
         id: string;
-    }
+    }>
 }
 
 export default async function PropuestaPage({ params }: Props) {
-    const proposal = await ProposalService.getProposalById(params.id);
+    const { id } = await params;
+    const proposal = await ProposalService.getProposalById(id);
 
     if (!proposal) {
         notFound();

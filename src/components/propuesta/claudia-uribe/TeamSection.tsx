@@ -72,6 +72,19 @@ const TEAM = [
         ],
         skills: ["Illustrator", "Photoshop", "Content Strategy", "Social Media", "Figma"],
     },
+    {
+        initials: "RL",
+        image: "/Ricardo-londono.jpg",
+        name: "Ricardo Londoño",
+        role: "Diseñador Gráfico & Editor",
+        description: "Diseñador Gráfico y Editor audiovisual enfocado en la estética visual y la creación de contenido dinámico de alto impacto para canales digitales.",
+        highlights: [
+            "Diseño de Identidad Visual",
+            "Edición de Video Creativa",
+            "Optimización para Redes",
+        ],
+        skills: ["Photoshop", "Illustrator", "Premiere", "After Effects", "Motion Graphics"],
+    },
 ];
 
 export default function TeamSection() {

@@ -26,7 +26,7 @@ const containerVariants = {
             delayChildren: 0.2
         }
     }
-};
+} as const;
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -35,7 +35,7 @@ const itemVariants = {
         y: 0,
         transition: { duration: 0.6, ease: "easeOut" }
     }
-};
+} as const;
 
 export default function FinalCTA() {
     const [isActivated, setIsActivated] = useState(false);

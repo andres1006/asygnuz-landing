@@ -7,18 +7,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Mock Data for Charts (Based on the real 20-day results)
 const userGrowthData = [
-    { day: 'D1', users: 12 }, { day: 'D3', users: 54 },
-    { day: 'D6', users: 124 }, { day: 'D10', users: 289 },
-    { day: 'D14', users: 450 }, { day: 'D17', users: 620 },
-    { day: 'D20', users: 797 }
+    { day: 'D1', users: 20 }, { day: 'D3', users: 90 },
+    { day: 'D6', users: 210 }, { day: 'D10', users: 485 },
+    { day: 'D14', users: 755 }, { day: 'D17', users: 1040 },
+    { day: 'D20', users: 1340 }
 ];
 
 const sessionsData = [
-    { day: 'Lun', sessions: 45 }, { day: 'Mar', sessions: 82 },
-    { day: 'Mie', sessions: 120 }, { day: 'Jue', sessions: 90 },
-    { day: 'Vie', sessions: 154 }, { day: 'Sab', sessions: 60 },
-    { day: 'Dom', sessions: 80 }, { day: 'Lun2', sessions: 180 },
-    { day: 'Mar2', sessions: 220 }, { day: 'Mie2', sessions: 126 } // Totaling ~1157
+    { day: 'Lun', sessions: 70 }, { day: 'Mar', sessions: 125 },
+    { day: 'Mie', sessions: 185 }, { day: 'Jue', sessions: 140 },
+    { day: 'Vie', sessions: 240 }, { day: 'Sab', sessions: 95 },
+    { day: 'Dom', sessions: 125 }, { day: 'Lun2', sessions: 280 },
+    { day: 'Mar2', sessions: 340 }, { day: 'Mie2', sessions: 200 } // Totaling ~1800
 ];
 
 export default function BentoProof() {
@@ -67,7 +67,7 @@ export default function BentoProof() {
                     <span className="text-[#183057] opacity-60">Resultados reales.</span>
                 </h2>
                 <p className="text-sm md:text-base text-[#183057]/40 mt-4 max-w-lg mx-auto font-medium">
-                    Métricas de crecimiento orgánico sin inversión en pauta durante la fase beta.
+                    Métricas de tracción inicial y tráfico consolidado (Orgánico y Programas).
                 </p>
             </div>
 
@@ -82,7 +82,7 @@ export default function BentoProof() {
                         <div>
                             <p className="text-[11px] font-mono tracking-widest text-[#1a1a2e]/50 uppercase">Usuarios Únicos (Retención)</p>
                             <div className="text-5xl font-bold text-[#1a1a2e] mt-1 tabular-nums">
-                                <span className="bento-counter" data-value="797">797</span>
+                                <span className="bento-counter" data-value="1340">1340</span>
                             </div>
                         </div>
                         <div className="text-xs font-semibold text-[#10B981] bg-[#10B981]/10 px-3 py-1 rounded-full flex items-center gap-1">
@@ -143,16 +143,16 @@ export default function BentoProof() {
                             </div>
                         </div>
                         <p className="text-[11px] font-mono tracking-widest text-[#183057]/40 uppercase mt-4 font-bold">CTR de Inicio a Formulario</p>
-                        <p className="text-sm text-[#183057]/60 mt-1 font-black">18 Leads Generados</p>
+                        <p className="text-sm text-[#183057]/60 mt-1 font-black">200 Leads generados y centralizados en Clint</p>
                     </div>
                 </div>
 
                 {/* BAR CHART: Sessions (Spans 6 cols) */}
                 <div className="md:col-span-6 bg-[#ffffff] rounded-3xl p-6 border border-[#1a1a2e]/[0.04] shadow-[0_4px_20px_rgb(0,0,0,0.02)] flex flex-col justify-between">
                     <div>
-                        <p className="text-[11px] font-mono tracking-widest text-[#1a1a2e]/50 uppercase">Volumen Sesiones Iniciadas</p>
+                        <p className="text-[11px] font-mono tracking-widest text-[#1a1a2e]/50 uppercase">Asesorías Gratuitas y Money Training</p>
                         <div className="text-3xl font-bold text-[#1a1a2e] mt-1 tabular-nums flex items-baseline gap-2">
-                            <span className="bento-counter" data-value="1157">1,157</span>
+                            <span className="bento-counter" data-value="1800">1,800</span>
                             <span className="text-sm font-normal text-[#1a1a2e]/40">total</span>
                         </div>
                     </div>
@@ -187,7 +187,7 @@ export default function BentoProof() {
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
                     <div className="text-3xl font-bold text-[#183057] tabular-nums">
-                        <span className="bento-counter" data-value="31">31</span>
+                        <span className="bento-counter" data-value="11">11</span>
                     </div>
                     <p className="text-[11px] font-mono tracking-widest text-[#183057]/40 uppercase mt-1 font-bold">Países Alcanzados</p>
                 </div>
