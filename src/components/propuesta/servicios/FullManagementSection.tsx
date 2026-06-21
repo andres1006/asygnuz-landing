@@ -3,12 +3,45 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Server, Megaphone, TrendingUp, Check, ShieldCheck } from 'lucide-react';
+import InlineCTA from '@/components/propuesta/servicios/InlineCTA';
 
-const LADDER = [
-    { period: "Meses 1–6", fee: "$2,000", desc: "Arranque y construcción. Operación completa a cargo nuestro.", color: "#4F46E5" },
-    { period: "Meses 7–12", fee: "$1,500", desc: "El equipo ya opera. Ejecutamos y entrenamos para la entrega.", color: "#2563EB" },
-    { period: "Meses 13–18", fee: "$1,200", desc: "Autonomía. Tu equipo toma el control, nosotros supervisamos.", color: "#1D4ED8" },
-    { period: "Mes 19+", fee: "$1,000", desc: "Gobernanza trimestral. Tu agencia interna opera sola.", color: "#059669" },
+const PHASES = [
+    {
+        n: "01",
+        title: "Construcción",
+        period: "Meses 1–6",
+        fee: "$2,000",
+        weDo: "Montamos CRM, automatizaciones, pauta y procesos. Operamos todo nosotros.",
+        youGet: "Tu sistema operativo digital funcionando, sin que tengas que ejecutarlo.",
+        control: 100,
+    },
+    {
+        n: "02",
+        title: "Operación y entrenamiento",
+        period: "Meses 7–12",
+        fee: "$1,500",
+        weDo: "Seguimos ejecutando, pero empezamos a entrenar a tu equipo en cada proceso.",
+        youGet: "Tu equipo aprende a usar el sistema mientras los resultados siguen corriendo.",
+        control: 70,
+    },
+    {
+        n: "03",
+        title: "Transición",
+        period: "Meses 13–18",
+        fee: "$1,200",
+        weDo: "Tu equipo toma el control del día a día. Nosotros supervisamos y corregimos.",
+        youGet: "Autonomía real: tu gente opera y tú dejas de depender de un proveedor.",
+        control: 35,
+    },
+    {
+        n: "04",
+        title: "Autonomía",
+        period: "Mes 19 en adelante",
+        fee: "$1,000",
+        weDo: "Gobernanza trimestral: auditamos, optimizamos y marcamos el rumbo estratégico.",
+        youGet: "Tu propia agencia interna operando sola. La estructura ya es tuya.",
+        control: 10,
+    },
 ];
 
 const PILLARS = [
@@ -65,27 +98,85 @@ export default function FullManagementSection() {
                 </p>
             </motion.div>
 
-            {/* Investment ladder */}
-            <p className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase font-bold mb-6 relative z-10">
-                Estructura de inversión
-            </p>
+            {/* Phased roadmap */}
+            <div className="mb-6 relative z-10">
+                <p className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase font-bold mb-2">
+                    Cómo funciona, fase por fase
+                </p>
+                <p className="text-sm text-white/55 font-medium leading-relaxed max-w-2xl">
+                    Un único objetivo guía las cuatro fases: pasar de <span className="text-white font-bold">&quot;nosotros operamos&quot;</span> a
+                    <span className="text-white font-bold"> &quot;tu equipo opera solo&quot;</span>. Por eso la inversión baja a medida que avanzas:
+                    estás comprando autonomía, no dependencia.
+                </p>
+            </div>
+
+            {/* Control transfer legend */}
+            <div className="flex items-center gap-4 mb-8 relative z-10 text-[10px] font-mono uppercase tracking-[0.15em]">
+                <span className="flex items-center gap-2 text-white/60">
+                    <span className="w-3 h-3 rounded-sm bg-[#93C5FD]" /> Opera ASYGNUZ
+                </span>
+                <span className="flex items-center gap-2 text-white/60">
+                    <span className="w-3 h-3 rounded-sm bg-[#34D399]" /> Opera tu equipo
+                </span>
+            </div>
+
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20 relative z-10"
+                className="relative z-10 mb-12 flex flex-col gap-4"
             >
-                {LADDER.map((step, i) => (
+                {PHASES.map((p, i) => (
                     <motion.div
                         key={i}
                         variants={cardVariants}
-                        className="bg-white/[0.04] backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-white/25 transition-all duration-500 hover:-translate-y-1"
+                        className="group bg-white/[0.04] backdrop-blur-xl rounded-[2rem] p-6 md:p-8 border border-white/10 hover:border-white/25 transition-all duration-500"
                     >
-                        <div className="w-full h-1.5 rounded-full mb-5 opacity-70" style={{ backgroundColor: step.color }} />
-                        <p className="text-[10px] font-mono tracking-[0.2em] text-white/40 uppercase font-bold mb-2">{step.period}</p>
-                        <p className="text-4xl font-black text-white tabular-nums mb-1">{step.fee}<span className="text-base font-medium text-white/40"> /mes</span></p>
-                        <p className="text-xs text-white/50 font-medium leading-relaxed mt-3">{step.desc}</p>
+                        <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+                            {/* Phase number + meta */}
+                            <div className="lg:w-52 shrink-0">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <span className="text-3xl font-black text-white/20 tabular-nums">{p.n}</span>
+                                    <div>
+                                        <p className="text-base font-black text-white leading-tight">{p.title}</p>
+                                        <p className="text-[10px] font-mono tracking-[0.15em] text-white/40 uppercase">{p.period}</p>
+                                    </div>
+                                </div>
+                                <p className="text-2xl font-black text-white tabular-nums">
+                                    {p.fee}<span className="text-sm font-medium text-white/40"> /mes</span>
+                                </p>
+                            </div>
+
+                            {/* What we do / what you get */}
+                            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <p className="text-[9px] font-mono tracking-[0.2em] text-[#93C5FD] uppercase font-bold mb-1.5">
+                                        Qué hacemos
+                                    </p>
+                                    <p className="text-sm text-white/65 font-medium leading-relaxed">{p.weDo}</p>
+                                </div>
+                                <div>
+                                    <p className="text-[9px] font-mono tracking-[0.2em] text-[#34D399] uppercase font-bold mb-1.5">
+                                        Qué logras tú
+                                    </p>
+                                    <p className="text-sm text-white/80 font-semibold leading-relaxed">{p.youGet}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Control transfer bar */}
+                        <div className="mt-6 pt-5 border-t border-white/10">
+                            <div className="flex items-center justify-between mb-2">
+                                <span className="text-[9px] font-mono tracking-[0.2em] text-white/40 uppercase">Quién opera</span>
+                                <span className="text-[9px] font-mono tracking-[0.2em] text-white/40 uppercase tabular-nums">
+                                    {p.control}% nosotros · {100 - p.control}% tu equipo
+                                </span>
+                            </div>
+                            <div className="w-full h-2 rounded-full bg-[#34D399]/30 overflow-hidden flex">
+                                <div className="h-full bg-[#93C5FD]" style={{ width: `${p.control}%` }} />
+                            </div>
+                        </div>
                     </motion.div>
                 ))}
             </motion.div>
@@ -163,6 +254,14 @@ export default function FullManagementSection() {
                     </p>
                 </div>
             </motion.div>
+
+            <div className="mt-8 relative z-10">
+                <InlineCTA
+                    variant="light"
+                    text="¿Quieres delegar la operación y quedarte con la estructura? Hablemos de Full Management."
+                    buttonLabel="Quiero este modelo"
+                />
+            </div>
         </div>
     );
 }

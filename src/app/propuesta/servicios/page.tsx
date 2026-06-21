@@ -21,9 +21,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SECTIONS = [
     { id: 'hero', label: 'INICIO' },
-    { id: 'proof', label: 'RESULTADOS' },
     { id: 'diagnosis', label: 'DIAGNÓSTICO' },
     { id: 'vision', label: 'VISIÓN' },
+    { id: 'proof', label: 'RESULTADOS' },
     { id: 'overview', label: 'MODELOS' },
     { id: 'consultoria', label: 'CONSULTORÍA' },
     { id: 'full', label: 'FULL MANAGEMENT' },
@@ -103,12 +103,6 @@ export default function ServiciosPropuesta() {
 
                 {isStarted && (
                     <div className="relative w-full z-20">
-                        <div className="w-full bg-[#F8FAFC]">
-                            <section id="proof" className="w-full min-h-screen py-20 section-reveal">
-                                <ProofSection />
-                            </section>
-                        </div>
-
                         <div className="w-full bg-white">
                             <section id="diagnosis" className="w-full min-h-screen py-20 section-reveal">
                                 <DiagnosisSection />
@@ -122,12 +116,18 @@ export default function ServiciosPropuesta() {
                         </div>
 
                         <div className="w-full bg-[#F8FAFC]">
+                            <section id="proof" className="w-full min-h-screen py-20 section-reveal">
+                                <ProofSection />
+                            </section>
+                        </div>
+
+                        <div className="w-full bg-white">
                             <section id="overview" className="w-full min-h-screen py-20 section-reveal">
                                 <ModelsOverview />
                             </section>
                         </div>
 
-                        <div className="w-full bg-white">
+                        <div className="w-full bg-[#F8FAFC]">
                             <section id="consultoria" className="w-full min-h-screen py-20 section-reveal">
                                 <ConsultoriaSection />
                             </section>

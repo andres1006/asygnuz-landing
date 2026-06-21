@@ -203,6 +203,16 @@ export default function ServicesHero({ isStarted, onStart }: { isStarted: boolea
                             <span className="block text-2xl md:text-3xl lg:text-[60px] font-black text-[#183057]/[0.7] tracking-[-0.03em]">2026</span>
                         </div>
 
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.9 }}
+                            className="max-w-xl text-center text-base md:text-lg text-[#183057]/70 font-medium leading-relaxed text-pretty -mt-2"
+                        >
+                            Construimos el sistema operativo digital de tu negocio
+                            <span className="text-[#183057] font-bold"> — y te lo entregamos</span>, para que crezca sin depender de ti.
+                        </motion.p>
+
                         <motion.button
                             onClick={onStart}
                             whileHover={{ scale: 1.05 }}

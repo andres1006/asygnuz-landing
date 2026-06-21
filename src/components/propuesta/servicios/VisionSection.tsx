@@ -19,37 +19,37 @@ const TRANSFORMATIONS = [
         icon: <Workflow className="w-5 h-5" />,
         label: "OPERACIÓN",
         today: "El negocio depende de tu presencia diaria.",
-        future: "Un sistema operativo digital que funciona aunque tú no estés.",
+        future: "Tu operación sigue facturando aunque tú te tomes una semana libre.",
     },
     {
         icon: <Database className="w-5 h-5" />,
         label: "CRM & DATOS",
         today: "Contactos dispersos en chats y hojas de cálculo.",
-        future: "Un CRM único, integrado y con tus datos bajo tu control.",
+        future: "Sabes en segundos qué lead vale la pena y por qué — sin abrir 4 pestañas.",
     },
     {
         icon: <Megaphone className="w-5 h-5" />,
         label: "MARKETING",
         today: "Inviertes en pauta sin saber qué genera resultados.",
-        future: "Atribución clara de cada lead por canal, campaña y contenido.",
+        future: "Inviertes solo en lo que cierra ventas y cortas lo que quema presupuesto.",
     },
     {
         icon: <Users className="w-5 h-5" />,
         label: "EQUIPO",
         today: "Tareas sin responsables y reuniones sin foco.",
-        future: "Roles claros, tablero de prioridades y seguimiento real.",
+        future: "Tu equipo avanza solo, con prioridades claras y sin perseguirte por respuestas.",
     },
     {
         icon: <Building2 className="w-5 h-5" />,
         label: "AUTONOMÍA",
         today: "Dependes de proveedores externos para todo.",
-        future: "Tu propia agencia interna operando con autonomía.",
+        future: "El conocimiento y la estructura viven dentro de tu empresa, no en un proveedor.",
     },
     {
         icon: <Rocket className="w-5 h-5" />,
         label: "CRECIMIENTO",
         today: "Cada vez que creces, el caos crece contigo.",
-        future: "Una infraestructura que escala con rentabilidad.",
+        future: "Cada nuevo cliente entra a un sistema que ya está listo para recibirlo.",
     },
 ];
 
@@ -83,9 +83,9 @@ export default function VisionSection() {
                 </p>
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight max-w-3xl mx-auto text-balance">
                     De donde estás hoy
-                    <span className="text-white opacity-40 italic"> a donde mereces estar.</span>
+                    <span className="text-white opacity-40 italic"> a un negocio que crece sin ti en el centro.</span>
                 </h2>
-                <p className="text-sm md:text-base text-white/50 max-w-2xl mx-auto font-medium leading-relaxed text-pretty">
+                <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto font-medium leading-relaxed text-pretty">
                     Esta es la transformación concreta que construimos contigo. No promesas vagas:
                     un antes y un después medible en cada área de tu negocio.
                 </p>
@@ -144,11 +144,21 @@ export default function VisionSection() {
                 ))}
             </motion.div>
 
-            <div className="mt-16 text-center relative z-10">
-                <p className="text-[10px] text-white/20 font-mono tracking-[0.2em] uppercase">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="mt-16 text-center relative z-10 space-y-3"
+            >
+                <p className="text-lg md:text-2xl font-bold text-white leading-snug max-w-2xl mx-auto text-balance">
+                    Así se ve el después.{' '}
+                    <span className="text-white/50">Lo siguiente es probarte que es real.</span>
+                </p>
+                <p className="text-[10px] text-white/25 font-mono tracking-[0.2em] uppercase">
                     Hacia una estructura de clase mundial — ASYGNUZ 2026
                 </p>
-            </div>
+            </motion.div>
         </div>
     );
 }

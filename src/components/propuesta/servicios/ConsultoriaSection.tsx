@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import InlineCTA from '@/components/propuesta/servicios/InlineCTA';
 
 const AREAS = [
     {
@@ -115,6 +116,14 @@ export default function ConsultoriaSection() {
                     <span className="text-white/50 text-lg md:text-2xl font-bold"> · $6,000 USD por los 4 meses completos</span>
                 </p>
             </motion.div>
+
+            <div className="mt-8">
+                <InlineCTA
+                    variant="dark"
+                    text="¿Prefieres construir capacidad interna con nuestra guía? Hablemos de Consultoría."
+                    buttonLabel="Quiero este modelo"
+                />
+            </div>
         </div>
     );
 }

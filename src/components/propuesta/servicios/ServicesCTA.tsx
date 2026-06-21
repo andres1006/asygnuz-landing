@@ -5,10 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Sparkles } from 'lucide-react';
 
 const STEPS = [
-    { n: "1", title: "Conversación inicial", detail: "30 min. Sin costo. Entendemos tu negocio." },
-    { n: "2", title: "Diagnóstico", detail: "Definimos KPIs y objetivos del programa." },
-    { n: "3", title: "Contrato + arranque", detail: "Firmamos, pago inicial y comenzamos." },
+    { n: "1", title: "Conversación inicial", detail: "30 min, sin costo y sin compromiso. Entendemos tu negocio." },
+    { n: "2", title: "Diagnóstico", detail: "Definimos juntos los KPIs y el objetivo del programa." },
+    { n: "3", title: "Plan a medida y arranque", detail: "Te recomendamos el modelo ideal y empezamos a ejecutar." },
 ];
+
+const CONTACT_EMAIL = "hola@asygnuz.com";
+const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    "Quiero agendar una conversación — Oferta de Servicios 2026"
+)}&body=${encodeURIComponent(
+    "Hola equipo ASYGNUZ,\n\nVi su oferta de servicios 2026 y me gustaría agendar la conversación inicial de 30 minutos.\n\nMi negocio: \nLo que más me interesa (Consultoría / Full Management / aún no estoy seguro): \n\nGracias."
+)}`;
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -71,17 +78,18 @@ export default function ServicesCTA() {
 
             <AnimatePresence mode="wait">
                 {!isActivated ? (
-                    <motion.button
+                    <motion.a
                         key="cta-button"
+                        href={MAILTO}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9 }}
                         onClick={() => setIsActivated(true)}
-                        className="group relative px-14 py-5 bg-[#183057] text-white font-mono font-bold text-sm tracking-[0.2em] rounded-full overflow-hidden hover:shadow-[0_0_40px_rgba(24,48,87,0.3)] transition-shadow"
+                        className="group relative inline-flex items-center justify-center px-14 py-5 bg-[#183057] text-white font-mono font-bold text-sm tracking-[0.2em] rounded-full overflow-hidden hover:shadow-[0_0_40px_rgba(24,48,87,0.3)] transition-shadow min-h-[44px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                        <span className="relative">AGENDAR CONVERSACIÓN</span>
-                    </motion.button>
+                        <span className="relative">AGENDAR CONVERSACIÓN GRATIS</span>
+                    </motion.a>
                 ) : (
                     <motion.div key="cta-confirmed" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center gap-6">
                         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", damping: 10 }}
@@ -90,10 +98,11 @@ export default function ServicesCTA() {
                         </motion.div>
                         <div className="text-center space-y-2">
                             <h3 className="text-2xl font-black text-[#183057] flex items-center gap-2 justify-center">
-                                <Sparkles size={20} /> Solicitud recibida
+                                <Sparkles size={20} /> Ya casi
                             </h3>
-                            <p className="text-sm text-[#183057]/40 font-medium">
-                                Asygnuz se pondrá en contacto contigo en las próximas 24 horas.
+                            <p className="text-sm text-[#183057]/50 font-medium max-w-sm">
+                                Te abrimos un correo listo para enviar. Si no se abrió, escríbenos a{' '}
+                                <a href={MAILTO} className="text-[#183057] font-bold underline underline-offset-2">{CONTACT_EMAIL}</a>.
                             </p>
                         </div>
                     </motion.div>
