@@ -6,8 +6,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SmoothScroll from '@/components/propuesta/claudia-uribe/SmoothScroll';
 
 import ServicesHero from '@/components/propuesta/servicios/ServicesHero';
-import ModelsOverview from '@/components/propuesta/servicios/ModelsOverview';
 import ProofSection from '@/components/propuesta/servicios/ProofSection';
+import DiagnosisSection from '@/components/propuesta/servicios/DiagnosisSection';
+import VisionSection from '@/components/propuesta/servicios/VisionSection';
+import ModelsOverview from '@/components/propuesta/servicios/ModelsOverview';
 import ConsultoriaSection from '@/components/propuesta/servicios/ConsultoriaSection';
 import FullManagementSection from '@/components/propuesta/servicios/FullManagementSection';
 import AscendMethod from '@/components/propuesta/servicios/AscendMethod';
@@ -19,8 +21,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SECTIONS = [
     { id: 'hero', label: 'INICIO' },
-    { id: 'overview', label: 'MODELOS' },
     { id: 'proof', label: 'RESULTADOS' },
+    { id: 'diagnosis', label: 'DIAGNÓSTICO' },
+    { id: 'vision', label: 'VISIÓN' },
+    { id: 'overview', label: 'MODELOS' },
     { id: 'consultoria', label: 'CONSULTORÍA' },
     { id: 'full', label: 'FULL MANAGEMENT' },
     { id: 'ascend', label: 'A.S.C.E.N.D.' },
@@ -99,15 +103,27 @@ export default function ServiciosPropuesta() {
 
                 {isStarted && (
                     <div className="relative w-full z-20">
+                        <div className="w-full bg-[#F8FAFC]">
+                            <section id="proof" className="w-full min-h-screen py-20 section-reveal">
+                                <ProofSection />
+                            </section>
+                        </div>
+
                         <div className="w-full bg-white">
-                            <section id="overview" className="w-full min-h-screen py-20 section-reveal">
-                                <ModelsOverview />
+                            <section id="diagnosis" className="w-full min-h-screen py-20 section-reveal">
+                                <DiagnosisSection />
+                            </section>
+                        </div>
+
+                        <div className="w-full bg-[#183057]">
+                            <section id="vision" className="w-full min-h-screen section-reveal">
+                                <VisionSection />
                             </section>
                         </div>
 
                         <div className="w-full bg-[#F8FAFC]">
-                            <section id="proof" className="w-full min-h-screen py-20 section-reveal">
-                                <ProofSection />
+                            <section id="overview" className="w-full min-h-screen py-20 section-reveal">
+                                <ModelsOverview />
                             </section>
                         </div>
 

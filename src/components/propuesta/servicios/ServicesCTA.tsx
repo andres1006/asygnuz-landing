@@ -35,12 +35,15 @@ export default function ServicesCTA() {
                 <p className="text-[10px] font-mono tracking-[0.5em] text-[#183057]/40 uppercase font-bold">
                     El Comienzo
                 </p>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#183057] leading-[1.05]">
-                    ¿Listo para <span className="text-[#183057] opacity-60">arrancar?</span>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#183057] leading-[1.05] text-balance">
+                    No venimos a ser tu agencia.<br />
+                    <span className="text-[#183057] opacity-60">Venimos a construir la tuya.</span>
                 </h2>
-                <p className="text-base md:text-lg text-[#183057]/50 max-w-2xl mx-auto font-medium leading-relaxed">
-                    El primer paso es una conversación de 30 minutos. Entendemos tu situación y te
-                    decimos con honestidad cuál de los dos servicios tiene más sentido ahora.
+                <p className="text-base md:text-lg text-[#183057]/50 max-w-2xl mx-auto font-medium leading-relaxed text-pretty">
+                    Ya sea con guía experta o con la operación completa a cargo nuestro, el objetivo
+                    es el mismo: que la estructura quede dentro de tu empresa. El primer paso es una
+                    conversación de 30 minutos — te decimos con honestidad cuál servicio tiene más
+                    sentido para ti ahora.
                 </p>
             </motion.div>
 
