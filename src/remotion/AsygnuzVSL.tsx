@@ -138,11 +138,11 @@ function LogoScene() {
             {/* Logo text */}
             <div
                 style={{
-                    fontSize: 80,
+                    fontSize: 96,
                     fontWeight: 700,
                     color: "#0F172A",
                     fontFamily: "Georgia, serif",
-                    letterSpacing: "-0.02em",
+                    letterSpacing: "-0.03em",
                     transform: `scale(${logoScale})`,
                 }}
             >
@@ -154,18 +154,19 @@ function LogoScene() {
                     width: lineWidth,
                     height: 3,
                     background: "linear-gradient(90deg, transparent, #1E6FD9, transparent)",
-                    marginTop: 16,
-                    marginBottom: 16,
+                    marginTop: 20,
+                    marginBottom: 20,
                 }}
             />
             {/* Subtitle */}
             <div
                 style={{
-                    fontSize: 20,
+                    fontSize: 22,
                     color: "#1E6FD9",
-                    letterSpacing: "0.25em",
+                    letterSpacing: "0.28em",
                     textTransform: "uppercase" as const,
-                    fontWeight: 600,
+                    fontWeight: 700,
+                    fontFamily: "system-ui, sans-serif",
                     opacity: subtitleOpacity,
                 }}
             >
@@ -224,12 +225,13 @@ function TextScene({
                     <div
                         key={i}
                         style={{
-                            fontSize: 56,
+                            fontSize: 68,
                             fontWeight: 700,
                             color: isHighlight ? "#1E6FD9" : "#0F172A",
                             fontFamily: "Georgia, serif",
                             textAlign: "center" as const,
-                            lineHeight: 1.2,
+                            lineHeight: 1.15,
+                            letterSpacing: "-0.02em",
                             opacity: lineOpacity,
                             transform: `translateY(${lineY}px) scale(${lineScale})`,
                         }}
@@ -242,12 +244,14 @@ function TextScene({
             {subline && (
                 <div
                     style={{
-                    fontSize: 22,
+                    fontSize: 26,
                     color: "#475569",
-                        marginTop: 32,
+                    fontFamily: "system-ui, sans-serif",
+                    fontWeight: 400,
+                        marginTop: 40,
                         textAlign: "center" as const,
-                        maxWidth: 600,
-                        lineHeight: 1.6,
+                        maxWidth: 700,
+                        lineHeight: 1.65,
                         opacity: interpolate(localFrame, [60, 90], [0, 1], {
                             extrapolateLeft: "clamp",
                             extrapolateRight: "clamp",
@@ -293,12 +297,13 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
         >
             <div
                 style={{
-                    fontSize: 18,
-                    fontWeight: 600,
+                    fontSize: 20,
+                    fontWeight: 700,
                     color: "#1E6FD9",
-                    letterSpacing: "0.2em",
+                    letterSpacing: "0.22em",
                     textTransform: "uppercase" as const,
-                    marginBottom: 12,
+                    fontFamily: "system-ui, sans-serif",
+                    marginBottom: 16,
                     opacity: titleOpacity,
                 }}
             >
@@ -306,19 +311,21 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
             </div>
             <div
                 style={{
-                    fontSize: 40,
+                    fontSize: 52,
                     fontWeight: 700,
                     color: "#0F172A",
                     fontFamily: "Georgia, serif",
                     textAlign: "center" as const,
-                    marginBottom: 48,
+                    letterSpacing: "-0.025em",
+                    lineHeight: 1.1,
+                    marginBottom: 56,
                     opacity: titleOpacity,
                 }}
             >
                 Ingeniería aplicada a tus ventas
             </div>
 
-            <div style={{ display: "flex", gap: 24 }}>
+            <div style={{ display: "flex", gap: 32 }}>
                 {pillars.map((p, i) => {
                     const cardDelay = 20 + i * 15;
                     const cardScale = spring({
@@ -337,35 +344,38 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
                         <div
                             key={i}
                             style={{
-                                width: 260,
+                                width: 280,
                                 background: "#FFFFFF",
                                 border: "1px solid #E2E8F0",
-                                borderRadius: 20,
-                                padding: "32px 24px",
+                                borderRadius: 24,
+                                padding: "36px 28px",
                                 textAlign: "center" as const,
                                 opacity: cardOpacity,
                                 transform: `scale(${cardScale})`,
-                                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                                boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
                             }}
                         >
                             <div
                                 style={{
-                                    fontSize: 12,
+                                    fontSize: 11,
                                     fontWeight: 700,
                                     color: "#1E6FD9",
-                                    letterSpacing: "0.15em",
-                                    marginBottom: 12,
+                                    letterSpacing: "0.18em",
+                                    fontFamily: "system-ui, sans-serif",
+                                    marginBottom: 14,
+                                    textTransform: "uppercase" as const,
                                 }}
                             >
                                 PILAR {p.label}
                             </div>
                             <div
                                 style={{
-                                    fontSize: 18,
+                                    fontSize: 20,
                                     fontWeight: 700,
                                     color: "#0F172A",
-                                    marginBottom: 16,
-                                    lineHeight: 1.3,
+                                    fontFamily: "system-ui, sans-serif",
+                                    marginBottom: 20,
+                                    lineHeight: 1.35,
                                     whiteSpace: "pre-line" as const,
                                 }}
                             >
@@ -373,10 +383,12 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
                             </div>
                             <div
                                 style={{
-                                    fontSize: 36,
+                                    fontSize: 44,
                                     fontWeight: 700,
                                     color: "#1E6FD9",
                                     fontFamily: "Georgia, serif",
+                                    lineHeight: 1,
+                                    letterSpacing: "-0.02em",
                                 }}
                             >
                                 {p.metric}
@@ -412,13 +424,14 @@ function CTAScene({ startFrame }: { startFrame: number }) {
         >
             <div
                 style={{
-                    fontSize: 48,
+                    fontSize: 62,
                     fontWeight: 700,
                     color: "#0F172A",
                     fontFamily: "Georgia, serif",
                     textAlign: "center" as const,
-                    lineHeight: 1.2,
-                    marginBottom: 20,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.025em",
+                    marginBottom: 48,
                     transform: `scale(${titleScale})`,
                 }}
             >
@@ -432,15 +445,16 @@ function CTAScene({ startFrame }: { startFrame: number }) {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: 12,
-                    padding: "18px 40px",
+                    padding: "20px 48px",
                     background: "#183057",
                     color: "#FFFFFF",
                     fontWeight: 700,
-                    fontSize: 18,
+                    fontSize: 20,
+                    fontFamily: "system-ui, sans-serif",
                     borderRadius: 60,
                     opacity: buttonOpacity,
-                    boxShadow: `0 4px ${20 + glowPulse * 10}px rgba(24,48,87,${0.2 + glowPulse * 0.15})`,
-                    letterSpacing: "0.02em",
+                    boxShadow: `0 6px ${24 + glowPulse * 12}px rgba(24,48,87,${0.22 + glowPulse * 0.14})`,
+                    letterSpacing: "0.04em",
                     textTransform: "uppercase" as const,
                 }}
             >
