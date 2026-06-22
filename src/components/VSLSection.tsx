@@ -2,13 +2,24 @@
 
 import { useEffect, useRef } from "react";
 import { useInView } from "@/hooks/useInView";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Player, PlayerRef } from "@remotion/player";
 import { AsygnuzVSL } from "@/remotion/AsygnuzVSL";
 import styles from "./VSLSection.module.css";
 
 export default function VSLSection() {
-    const { ref, isVisible } = useInView(0.3);
+    const { ref, isVisible } = useInView(0.25);
     const playerRef = useRef<PlayerRef>(null);
+    const sectionRef = useRef<HTMLElement>(null);
+
+    // Parallax scroll: as user scrolls past the section, video shrinks + fades
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"],
+    });
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+    const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+    const y = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
 
     useEffect(() => {
         if (isVisible && playerRef.current) {
@@ -17,56 +28,32 @@ export default function VSLSection() {
     }, [isVisible]);
 
     return (
-        <section className={`section ${styles.vsl}`} ref={ref}>
-            <div className="container">
-                <div className={`${styles.card} ${isVisible ? styles.visible : ""}`}>
-                    {/* Remotion Video Player */}
-                    <div className={styles.videoFrame}>
-                        <Player
-                            ref={playerRef}
-                            component={AsygnuzVSL}
-                            durationInFrames={1800}
-                            compositionWidth={1920}
-                            compositionHeight={1080}
-                            fps={30}
-                            controls
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                            }}
-                            autoPlay={false}
-                            loop={false}
-                            clickToPlay
-                        />
-                    </div>
-
-                    {/* Divider */}
-                    <div className={styles.divider} />
-
-                    {/* Sales Letter */}
-                    <div className={styles.letterContent}>
-                        <p className={styles.stat}>
-                            El <span className={styles.statHighlight}>90%</span> de las
-                            empresas invierten miles de dólares en anuncios...
-                        </p>
-                        <p className={styles.body}>
-                            ...pero los envían a páginas que tardan{" "}
-                            <strong>5 segundos en cargar</strong> o a flujos de WhatsApp donde
-                            los leads se enfrían. Eso es{" "}
-                            <span className={styles.danger}>tirar el dinero.</span>
-                        </p>
-                        <blockquote className={styles.quote}>
-                            En Asygnuz no hacemos &ldquo;marketing bonito&rdquo;, construimos{" "}
-                            <strong>máquinas de conversión</strong>. Optimizamos los Core Web
-                            Vitals, conectamos bases de datos y automatizamos el flujo para que
-                            tu equipo comercial solo hable con{" "}
-                            <span className={styles.quoteHighlight}>
-                                personas listas para comprar.
-                            </span>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
+        <section
+            className={styles.vsl}
+            ref={(el) => {
+                // attach both refs: useInView's div ref + local section ref
+                (ref as unknown as React.MutableRefObject<HTMLElement | null>).current = el;
+                sectionRef.current = el;
+            }}
+        >
+            <motion.div
+                className={styles.videoWrap}
+                style={{ scale, opacity, y }}
+            >
+                <Player
+                    ref={playerRef}
+                    component={AsygnuzVSL}
+                    durationInFrames={1800}
+                    compositionWidth={1920}
+                    compositionHeight={1080}
+                    fps={30}
+                    controls
+                    style={{ width: "100%", height: "100%" }}
+                    autoPlay={false}
+                    loop={false}
+                    clickToPlay
+                />
+            </motion.div>
         </section>
     );
 }

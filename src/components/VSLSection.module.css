@@ -1,152 +1,21 @@
 .vsl {
-    background: #F8FAFC;
-}
-
-.card {
-    max-width: 860px;
-    margin: 0 auto;
+    position: relative;
     background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 24px;
+    /* Extra bottom padding so next section overlaps naturally */
+    padding: 0 0 80px;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s var(--ease-out-expo);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Video Frame */
-.videoFrame {
+/* Full-width video wrapper — Framer Motion applies scale/opacity/y here */
+.videoWrap {
     position: relative;
+    width: 100%;
+    /* 16:9 — matches Remotion composition */
     aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
-}
-
-.videoFrame::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 30% 40%, rgba(30, 111, 217, 0.06), transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(30, 111, 217, 0.04), transparent 50%);
-}
-
-.playOverlay {
-    text-align: center;
-    z-index: 2;
-    position: relative;
-}
-
-.playButton {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(30, 111, 217, 0.10);
-    border: 2px solid rgba(30, 111, 217, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    cursor: pointer;
-    transition: all 0.4s var(--ease-out-expo);
-    animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.playButton:hover {
-    background: rgba(30, 111, 217, 0.18);
-    border-color: #1E6FD9;
-    transform: scale(1.1);
-}
-
-.playText {
-    font-size: 14px;
-    color: #475569;
-    font-weight: 500;
-}
-
-/* Divider */
-.divider {
-    height: 1px;
-    background: #E2E8F0;
-}
-
-/* Letter Content */
-.letterContent {
-    padding: 48px;
-}
-
-.stat {
-    font-size: 22px;
-    color: #334155;
-    margin-bottom: 16px;
-    line-height: 1.6;
-}
-
-.statHighlight {
-    font-family: var(--font-display);
-    font-size: 48px;
-    font-weight: 700;
-    color: #1E6FD9;
-    line-height: 1;
-}
-
-.body {
-    font-size: 17px;
-    color: #475569;
-    line-height: 1.8;
-    margin-bottom: 28px;
-}
-
-.body strong {
-    color: #0F172A;
-}
-
-.danger {
-    color: #DC2626;
-    font-weight: 600;
-}
-
-.quote {
-    border-left: 3px solid #183057;
-    padding: 24px 28px;
-    margin: 0;
-    background: #EFF6FF;
-    border-radius: 0 12px 12px 0;
-    font-size: 17px;
-    color: #334155;
-    line-height: 1.8;
-    font-style: normal;
-}
-
-.quote strong {
-    color: #0F172A;
-}
-
-.quoteHighlight {
-    color: #1E6FD9;
-    font-weight: 600;
-}
-
-@media (max-width: 768px) {
-    .letterContent {
-        padding: 28px;
-    }
-
-    .statHighlight {
-        font-size: 36px;
-    }
-
-    .playButton {
-        width: 64px;
-        height: 64px;
-    }
+    transform-origin: center top;
+    /* Thin top radius so it flows from the hero */
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+    will-change: transform, opacity;
 }
