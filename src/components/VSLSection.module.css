@@ -1,21 +1,20 @@
-.vsl {
+/* Tall wrapper — provides scroll distance to drive frame scrubbing */
+.scrollRoom {
+    /* 3× viewport height = plenty of scroll range for 60s of content */
+    height: 300vh;
     position: relative;
     background: #FFFFFF;
-    /* Extra bottom padding so next section overlaps naturally */
-    padding: 0 0 80px;
-    overflow: hidden;
+    /* No padding, no border, no gap */
+    margin: 0;
+    padding: 0;
 }
 
-/* Full-width video wrapper — Framer Motion applies scale/opacity/y here */
-.videoWrap {
-    position: relative;
+/* Sticky inner — always fills the viewport while inside scrollRoom */
+.sticky {
+    position: sticky;
+    top: 0;
     width: 100%;
-    /* 16:9 — matches Remotion composition */
-    aspect-ratio: 16 / 9;
+    height: 100vh;
     overflow: hidden;
-    transform-origin: center top;
-    /* Thin top radius so it flows from the hero */
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
-    will-change: transform, opacity;
+    /* No border-radius, no shadow — flush edge-to-edge */
 }

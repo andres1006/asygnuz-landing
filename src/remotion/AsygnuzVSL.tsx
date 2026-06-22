@@ -80,31 +80,31 @@ function AnimatedBackground() {
     return (
         <AbsoluteFill
             style={{
-                background: "linear-gradient(135deg, #0A1628 0%, #0F2044 50%, #152B56 100%)",
+                background: "#FFFFFF",
                 opacity,
             }}
         >
-            {/* Grid pattern */}
+            {/* Subtle grid pattern */}
             <div
                 style={{
                     position: "absolute",
                     inset: -60,
                     backgroundImage:
-                        "linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px)",
+                        "linear-gradient(rgba(24,48,87,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(24,48,87,0.05) 1px, transparent 1px)",
                     backgroundSize: "60px 60px",
                     transform: `translateY(${gridOffset}px)`,
                 }}
             />
-            {/* Cyan glow orb */}
+            {/* Soft blue orb */}
             <div
                 style={{
                     position: "absolute",
-                    width: 500,
-                    height: 500,
+                    width: 700,
+                    height: 700,
                     borderRadius: "50%",
-                    background: "radial-gradient(circle, rgba(0,212,255,0.08), transparent 70%)",
-                    top: -100 + Math.sin(frame / 60) * 30,
-                    right: -100 + Math.cos(frame / 45) * 20,
+                    background: "radial-gradient(circle, rgba(30,111,217,0.06), transparent 70%)",
+                    top: -200 + Math.sin(frame / 60) * 30,
+                    right: -200 + Math.cos(frame / 45) * 20,
                 }}
             />
         </AbsoluteFill>
@@ -140,7 +140,7 @@ function LogoScene() {
                 style={{
                     fontSize: 80,
                     fontWeight: 700,
-                    color: "#FFFFFF",
+                    color: "#0F172A",
                     fontFamily: "Georgia, serif",
                     letterSpacing: "-0.02em",
                     transform: `scale(${logoScale})`,
@@ -153,7 +153,7 @@ function LogoScene() {
                 style={{
                     width: lineWidth,
                     height: 3,
-                    background: "linear-gradient(90deg, transparent, #00D4FF, transparent)",
+                    background: "linear-gradient(90deg, transparent, #1E6FD9, transparent)",
                     marginTop: 16,
                     marginBottom: 16,
                 }}
@@ -162,7 +162,7 @@ function LogoScene() {
             <div
                 style={{
                     fontSize: 20,
-                    color: "#00D4FF",
+                    color: "#1E6FD9",
                     letterSpacing: "0.25em",
                     textTransform: "uppercase" as const,
                     fontWeight: 600,
@@ -226,7 +226,7 @@ function TextScene({
                         style={{
                             fontSize: 56,
                             fontWeight: 700,
-                            color: isHighlight ? "#00D4FF" : "#FFFFFF",
+                            color: isHighlight ? "#1E6FD9" : "#0F172A",
                             fontFamily: "Georgia, serif",
                             textAlign: "center" as const,
                             lineHeight: 1.2,
@@ -242,8 +242,8 @@ function TextScene({
             {subline && (
                 <div
                     style={{
-                        fontSize: 22,
-                        color: "#94A3B8",
+                    fontSize: 22,
+                    color: "#475569",
                         marginTop: 32,
                         textAlign: "center" as const,
                         maxWidth: 600,
@@ -295,7 +295,7 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
                 style={{
                     fontSize: 18,
                     fontWeight: 600,
-                    color: "#00D4FF",
+                    color: "#1E6FD9",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase" as const,
                     marginBottom: 12,
@@ -308,7 +308,7 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
                 style={{
                     fontSize: 40,
                     fontWeight: 700,
-                    color: "#FFFFFF",
+                    color: "#0F172A",
                     fontFamily: "Georgia, serif",
                     textAlign: "center" as const,
                     marginBottom: 48,
@@ -338,20 +338,21 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
                             key={i}
                             style={{
                                 width: 260,
-                                background: "rgba(15,32,68,0.7)",
-                                border: "1px solid rgba(0,212,255,0.12)",
+                                background: "#FFFFFF",
+                                border: "1px solid #E2E8F0",
                                 borderRadius: 20,
                                 padding: "32px 24px",
                                 textAlign: "center" as const,
                                 opacity: cardOpacity,
                                 transform: `scale(${cardScale})`,
+                                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
                             }}
                         >
                             <div
                                 style={{
                                     fontSize: 12,
                                     fontWeight: 700,
-                                    color: "#00D4FF",
+                                    color: "#1E6FD9",
                                     letterSpacing: "0.15em",
                                     marginBottom: 12,
                                 }}
@@ -362,7 +363,7 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
                                 style={{
                                     fontSize: 18,
                                     fontWeight: 700,
-                                    color: "#FFFFFF",
+                                    color: "#0F172A",
                                     marginBottom: 16,
                                     lineHeight: 1.3,
                                     whiteSpace: "pre-line" as const,
@@ -374,7 +375,7 @@ function PillarsScene({ startFrame }: { startFrame: number }) {
                                 style={{
                                     fontSize: 36,
                                     fontWeight: 700,
-                                    color: "#00D4FF",
+                                    color: "#1E6FD9",
                                     fontFamily: "Georgia, serif",
                                 }}
                             >
@@ -413,7 +414,7 @@ function CTAScene({ startFrame }: { startFrame: number }) {
                 style={{
                     fontSize: 48,
                     fontWeight: 700,
-                    color: "#FFFFFF",
+                    color: "#0F172A",
                     fontFamily: "Georgia, serif",
                     textAlign: "center" as const,
                     lineHeight: 1.2,
@@ -423,7 +424,7 @@ function CTAScene({ startFrame }: { startFrame: number }) {
             >
                 Construyamos tu próxima
                 <br />
-                <span style={{ color: "#00D4FF" }}>máquina de ventas.</span>
+                <span style={{ color: "#1E6FD9" }}>máquina de ventas.</span>
             </div>
 
             <div
@@ -432,13 +433,13 @@ function CTAScene({ startFrame }: { startFrame: number }) {
                     alignItems: "center",
                     gap: 12,
                     padding: "18px 40px",
-                    background: "linear-gradient(135deg, #00D4FF, #009DB8)",
-                    color: "#0A1628",
+                    background: "#183057",
+                    color: "#FFFFFF",
                     fontWeight: 700,
                     fontSize: 18,
                     borderRadius: 60,
                     opacity: buttonOpacity,
-                    boxShadow: `0 0 ${30 + glowPulse * 30}px rgba(0,212,255,${0.15 + glowPulse * 0.2})`,
+                    boxShadow: `0 4px ${20 + glowPulse * 10}px rgba(24,48,87,${0.2 + glowPulse * 0.15})`,
                     letterSpacing: "0.02em",
                     textTransform: "uppercase" as const,
                 }}
