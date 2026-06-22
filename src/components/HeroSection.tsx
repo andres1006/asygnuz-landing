@@ -44,7 +44,7 @@ export default function HeroSection() {
                         alt="Asygnuz"
                         width={460}
                         height={70}
-                        className="brightness-0 opacity-90"
+                        className="opacity-90"
                         priority
                     />
                 </motion.div>

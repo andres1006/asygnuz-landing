@@ -25,7 +25,7 @@ export default function VSLSection() {
                                 width: "100%",
                                 height: "100%",
                             }}
-                            autoPlay={false}
+                            autoPlay={isVisible}
                             loop={false}
                         />
                     </div>
