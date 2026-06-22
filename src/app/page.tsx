@@ -11,13 +11,12 @@ import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main className="bg-white">
       {/* Hero no lleva wrapper para que cargue instantáneo */}
       <HeroSection />
       
-      <SectionWrapper>
-        <VSLSection />
-      </SectionWrapper>
+      {/* VSL fuera de SectionWrapper: sticky scroll-scrubbing requiere overflow visible */}
+      <VSLSection />
 
       <SectionWrapper>
         <PainSection />

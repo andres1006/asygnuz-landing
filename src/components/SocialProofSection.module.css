@@ -1,5 +1,5 @@
 .proof {
-    background: var(--navy-900);
+    background: #F8FAFC;
 }
 
 .header {
@@ -18,13 +18,14 @@
 .caseStudy {
     max-width: 800px;
     margin: 0 auto;
-    background: rgba(15, 32, 68, 0.5);
-    border: 1px solid rgba(0, 212, 255, 0.08);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 24px;
     padding: 48px;
     opacity: 0;
     transform: translateY(40px);
     transition: all 0.9s var(--ease-out-expo) 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .caseStudy.visible {
@@ -40,9 +41,9 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gray-400);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #475569;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
     border-radius: 20px;
     padding: 6px 16px;
     margin-bottom: 20px;
@@ -52,7 +53,7 @@
     font-family: var(--font-display);
     font-size: clamp(24px, 4vw, 32px);
     font-weight: 700;
-    color: var(--white);
+    color: #0F172A;
     margin-bottom: 40px;
 }
 
@@ -107,19 +108,19 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--cyan-400);
+    color: #1E6FD9;
     display: block;
     margin-bottom: 6px;
 }
 
 .stepText {
     font-size: 15px;
-    color: var(--gray-400);
+    color: #475569;
     line-height: 1.7;
 }
 
 .stepText strong {
-    color: var(--white);
+    color: #0F172A;
 }
 
 /* Results Bar */
@@ -130,7 +131,7 @@
     gap: 0;
     margin-top: 40px;
     padding-top: 32px;
-    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    border-top: 1px solid #E2E8F0;
 }
 
 .resultItem {
@@ -142,18 +143,18 @@
     font-family: var(--font-display);
     font-size: 32px;
     font-weight: 700;
-    color: var(--cyan-400);
+    color: #1E6FD9;
     display: block;
     margin-bottom: 4px;
 }
 
 .resultUp {
-    color: var(--success);
+    color: #059669;
 }
 
 .resultLabel {
     font-size: 12px;
-    color: var(--gray-500);
+    color: #64748B;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 500;
@@ -162,7 +163,7 @@
 .resultDivider {
     width: 1px;
     height: 48px;
-    background: rgba(0, 212, 255, 0.1);
+    background: #E2E8F0;
 }
 
 @media (max-width: 768px) {

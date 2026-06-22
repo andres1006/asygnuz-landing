@@ -37,25 +37,25 @@
    CSS Variables
    ======================================== */
 :root {
-  /* Brand Colors */
-  --navy-900: #0A1628;
-  --navy-800: #0F2044;
-  --navy-700: #152B56;
-  --navy-600: #1B3668;
-  --navy-500: #24477E;
+  /* Brand Colors — Light Mode */
+  --navy-900: #183057;
+  --navy-800: #1E3D6B;
+  --navy-700: #234A80;
+  --navy-600: #2957A0;
+  --navy-500: #3264B8;
 
-  /* Accent */
-  --cyan-400: #00D4FF;
-  --cyan-500: #00B8DB;
-  --cyan-600: #009DB8;
-  --cyan-glow: rgba(0, 212, 255, 0.15);
-  --cyan-glow-strong: rgba(0, 212, 255, 0.35);
+  /* Accent — azul legible sobre blanco (WCAG AA 4.8:1) */
+  --cyan-400: #1E6FD9;
+  --cyan-500: #1A5FBD;
+  --cyan-600: #164FA0;
+  --cyan-glow: rgba(30, 111, 217, 0.12);
+  --cyan-glow-strong: rgba(30, 111, 217, 0.28);
 
-  /* Status */
-  --success: #00E68A;
-  --success-bg: rgba(0, 230, 138, 0.08);
-  --danger: #FF4D6A;
-  --danger-bg: rgba(255, 77, 106, 0.08);
+  /* Status — accesibles sobre blanco */
+  --success: #059669;
+  --success-bg: rgba(5, 150, 105, 0.08);
+  --danger: #DC2626;
+  --danger-bg: rgba(220, 38, 38, 0.08);
 
   /* Neutrals */
   --white: #FFFFFF;
@@ -63,9 +63,9 @@
   --gray-100: #F1F5F9;
   --gray-200: #E2E8F0;
   --gray-300: #CBD5E1;
-  --gray-400: #94A3B8;
+  --gray-400: #475569;
   --gray-500: #64748B;
-  --gray-600: #475569;
+  --gray-600: #94A3B8;
 
   /* Typography */
   --font-display: 'Salvatore', 'Georgia', serif;
@@ -134,8 +134,8 @@
 
   body {
     font-family: var(--font-body);
-    background: var(--navy-900);
-    color: var(--gray-200);
+    background: #FFFFFF;
+    color: #0F172A;
     line-height: 1.7;
     overflow-x: hidden;
     @apply bg-background text-foreground;
@@ -148,7 +148,7 @@
   h5,
   h6 {
     font-family: var(--font-display);
-    color: var(--white);
+    color: #0F172A;
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
@@ -195,8 +195,8 @@
   align-items: center;
   gap: 12px;
   padding: 18px 40px;
-  background: linear-gradient(135deg, var(--cyan-400), var(--cyan-600));
-  color: var(--navy-900);
+  background: #183057;
+  color: #FFFFFF;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 16px;
@@ -208,7 +208,7 @@
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 30px var(--cyan-glow), 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(24, 48, 87, 0.25);
 }
 
 .cta-button::before {
@@ -224,8 +224,9 @@
 
 .cta-button:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 0 50px var(--cyan-glow-strong), 0 8px 25px rgba(0, 0, 0, 0.4);
-  color: var(--navy-900);
+  box-shadow: 0 8px 32px rgba(24, 48, 87, 0.35);
+  background: #1E3D6B;
+  color: #FFFFFF;
 }
 
 .cta-button:hover::before {
@@ -241,47 +242,45 @@
    ======================================== */
 .section-pretitle {
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cyan-400);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .section-title {
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(36px, 5.5vw, 60px);
   font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   margin-bottom: 24px;
-  background: linear-gradient(135deg, var(--white), var(--gray-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #0F172A;
 }
 
 .section-subtitle {
-  font-size: 18px;
-  color: var(--gray-400);
-  max-width: 640px;
-  line-height: 1.7;
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: #475569;
+  max-width: 600px;
+  line-height: 1.75;
 }
 
 /* ========================================
    Glass Card
    ======================================== */
 .glass-card {
-  background: rgba(15, 32, 68, 0.6);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   border-radius: 20px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   padding: 40px;
   transition: all 0.4s var(--ease-out-expo);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .glass-card:hover {
-  border-color: rgba(0, 212, 255, 0.25);
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.08);
+  border-color: #1E6FD9;
+  box-shadow: 0 4px 24px rgba(30, 111, 217, 0.10);
   transform: translateY(-4px);
 }
 
@@ -394,26 +393,23 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--navy-900);
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--navy-600);
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--navy-500);
+  background: #94A3B8;
 }
 
 /* ========================================
    Divider
    ======================================== */
 .section-divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
-  margin: 0;
+  display: none;
 }
 
 /* ========================================

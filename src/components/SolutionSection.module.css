@@ -5,19 +5,18 @@
 
 .solution {
     position: relative;
-    background: #050d1a;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: #FFFFFF;
     padding: 120px 0;
     overflow: hidden;
 }
 
-/* Fondo glow cyan sutil */
+/* Fondo glow suave sobre blanco */
 .bgAccent {
     position: absolute;
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.05), transparent 70%);
+    background: radial-gradient(circle, rgba(30, 111, 217, 0.04), transparent 70%);
     top: -200px;
     left: 50%;
     transform: translateX(-50%);
@@ -31,7 +30,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.25), transparent);
+    background: linear-gradient(90deg, transparent, rgba(30, 111, 217, 0.2), transparent);
 }
 
 /* Contenedor interno — centrado y con padding propio */
@@ -59,9 +58,9 @@
     font-family: var(--font-body);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--cyan-400);
+    color: #1E6FD9;
     margin-bottom: 20px;
 }
 
@@ -69,31 +68,31 @@
     display: inline-block;
     width: 32px;
     height: 1px;
-    background: rgba(0, 212, 255, 0.35);
+    background: rgba(30, 111, 217, 0.3);
 }
 
 .title {
     font-family: var(--font-display);
-    font-size: clamp(34px, 5vw, 56px);
+    font-size: clamp(36px, 5.5vw, 60px);
     font-weight: 700;
-    line-height: 1.1;
-    color: #fff;
-    letter-spacing: -0.02em;
+    line-height: 1.08;
+    color: #0F172A;
+    letter-spacing: -0.025em;
     margin-bottom: 20px;
 }
 
 .titleAccent {
-    background: linear-gradient(135deg, var(--cyan-400), var(--success));
+    background: linear-gradient(135deg, #1E6FD9, #059669);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .subtitle {
-    font-size: 18px;
-    color: #94a3b8;
-    line-height: 1.7;
-    max-width: 580px;
+    font-size: clamp(16px, 1.4vw, 19px);
+    color: #475569;
+    line-height: 1.75;
+    max-width: 560px;
     margin: 0 auto;
 }
 
@@ -106,13 +105,14 @@
 
 /* ===================== PILLAR CARD ===================== */
 .pillarCard {
-    background: rgba(10, 22, 40, 0.7);
-    border: 1px solid rgba(0, 212, 255, 0.08);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 24px;
     padding: 36px 28px;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
 
 /* Barra top de color */
@@ -131,18 +131,18 @@
     opacity: 1;
 }
 
-/* Variantes de acento */
-.accent_cyan { border-color: rgba(0, 212, 255, 0.1); }
-.accent_cyan:hover { border-color: rgba(0, 212, 255, 0.25); }
-.accent_cyan::before { background: linear-gradient(90deg, var(--cyan-400), transparent); }
+/* Variantes de acento — visible sobre blanco */
+.accent_cyan { border-color: #DBEAFE; }
+.accent_cyan:hover { border-color: #93C5FD; box-shadow: 0 4px 20px rgba(30, 111, 217, 0.10); transform: translateY(-4px); }
+.accent_cyan::before { background: linear-gradient(90deg, #1E6FD9, transparent); }
 
-.accent_emerald { border-color: rgba(0, 230, 138, 0.1); }
-.accent_emerald:hover { border-color: rgba(0, 230, 138, 0.25); }
-.accent_emerald::before { background: linear-gradient(90deg, var(--success), transparent); }
+.accent_emerald { border-color: #D1FAE5; }
+.accent_emerald:hover { border-color: #6EE7B7; box-shadow: 0 4px 20px rgba(5, 150, 105, 0.10); transform: translateY(-4px); }
+.accent_emerald::before { background: linear-gradient(90deg, #059669, transparent); }
 
-.accent_purple { border-color: rgba(168, 85, 247, 0.1); }
-.accent_purple:hover { border-color: rgba(168, 85, 247, 0.25); }
-.accent_purple::before { background: linear-gradient(90deg, #a855f7, transparent); }
+.accent_purple { border-color: #EDE9FE; }
+.accent_purple:hover { border-color: #C4B5FD; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.10); transform: translateY(-4px); }
+.accent_purple::before { background: linear-gradient(90deg, #7C3AED, transparent); }
 
 /* ===================== PILLAR TOP ===================== */
 .pillarTop {
@@ -157,8 +157,8 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--cyan-400);
-    background: rgba(0, 212, 255, 0.08);
+    color: #1E6FD9;
+    background: rgba(30, 111, 217, 0.08);
     padding: 4px 10px;
     border-radius: 20px;
 }
@@ -172,23 +172,23 @@
     justify-content: center;
 }
 
-.icon_cyan    { background: rgba(0, 212, 255, 0.08); color: var(--cyan-400); }
-.icon_emerald { background: rgba(0, 230, 138, 0.08); color: var(--success); }
-.icon_purple  { background: rgba(168, 85, 247, 0.08); color: #a855f7; }
+.icon_cyan    { background: rgba(30, 111, 217, 0.08); color: #1E6FD9; }
+.icon_emerald { background: rgba(5, 150, 105, 0.08);  color: #059669; }
+.icon_purple  { background: rgba(124, 58, 237, 0.08); color: #7C3AED; }
 
 /* ===================== PILLAR TEXT ===================== */
 .pillarTitle {
     font-family: var(--font-body);
     font-size: 19px;
     font-weight: 700;
-    color: #fff;
+    color: #0F172A;
     margin-bottom: 12px;
     line-height: 1.3;
 }
 
 .pillarDesc {
     font-size: 14px;
-    color: #94a3b8;
+    color: #475569;
     line-height: 1.75;
     margin-bottom: 28px;
 }
@@ -199,7 +199,7 @@
     align-items: baseline;
     gap: 10px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid #E2E8F0;
 }
 
 .metricValue {
@@ -209,14 +209,14 @@
     line-height: 1;
 }
 
-.metric_cyan    { color: var(--cyan-400); }
-.metric_emerald { color: var(--success); }
-.metric_purple  { color: #a855f7; }
+.metric_cyan    { color: #1E6FD9; }
+.metric_emerald { color: #059669; }
+.metric_purple  { color: #7C3AED; }
 
 .metricLabel {
     font-size: 12px;
     font-weight: 600;
-    color: #475569;
+    color: #64748B;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }

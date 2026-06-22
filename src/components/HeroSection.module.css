@@ -1,11 +1,11 @@
 .hero {
-    min-height: 100vh;
+    min-height: 96vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 60px 0;
+    padding: 48px 0 40px;
 }
 
 /* Background Grid */
@@ -20,19 +20,19 @@
     position: absolute;
     inset: -40px;
     background-image:
-        linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(24, 48, 87, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 48, 87, 0.05) 1px, transparent 1px);
     background-size: 60px 60px;
     animation: grid-move 8s linear infinite;
 }
 
-/* Glow Orbs */
+/* Soft Orbs */
 .orbCyan {
     position: absolute;
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.08), transparent 70%);
+    background: radial-gradient(circle, rgba(30, 111, 217, 0.07), transparent 70%);
     top: -200px;
     right: -200px;
     pointer-events: none;
@@ -44,7 +44,7 @@
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(21, 43, 86, 0.4), transparent 70%);
+    background: radial-gradient(circle, rgba(24, 48, 87, 0.05), transparent 70%);
     bottom: -150px;
     left: -150px;
     pointer-events: none;
@@ -66,31 +66,32 @@
 
 /* Pre-title */
 .pretitle {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.25em;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--cyan-400);
-    margin-bottom: 28px;
-    padding: 8px 24px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    color: #1E6FD9;
+    margin-bottom: 32px;
+    padding: 8px 22px;
+    border: 1px solid rgba(30, 111, 217, 0.2);
     border-radius: 30px;
     display: inline-block;
-    background: rgba(0, 212, 255, 0.05);
+    background: rgba(30, 111, 217, 0.05);
 }
 
 /* Title */
 .title {
     font-family: var(--font-display);
-    font-size: clamp(36px, 6vw, 64px);
+    font-size: clamp(40px, 6.5vw, 72px);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     margin-bottom: 28px;
-    color: var(--white);
+    color: #0F172A;
 }
 
 .highlight {
-    background: linear-gradient(135deg, var(--cyan-400), #00E68A);
+    background: linear-gradient(135deg, #1E6FD9, #059669);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -98,20 +99,22 @@
 
 /* Subtitle */
 .subtitle {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: var(--gray-400);
-    line-height: 1.7;
-    max-width: 720px;
-    margin: 0 auto 44px;
+    font-size: clamp(17px, 1.6vw, 21px);
+    color: #475569;
+    line-height: 1.75;
+    max-width: 680px;
+    margin: 0 auto 48px;
+    font-weight: 400;
 }
 
 .subtitle strong {
-    color: var(--white);
+    color: #0F172A;
+    font-weight: 600;
 }
 
 /* CTA Wrapper */
 .ctaWrapper {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
 }
 
 /* Trust Badge */
@@ -120,16 +123,17 @@
     align-items: center;
     gap: 8px;
     font-size: 13px;
-    color: var(--gray-500);
+    color: #64748B;
+    letter-spacing: 0.01em;
 }
 
 .trustDot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--success);
+    background: #059669;
     animation: pulse-glow 2s ease-in-out infinite;
-    box-shadow: 0 0 8px rgba(0, 230, 138, 0.4);
+    box-shadow: 0 0 8px rgba(5, 150, 105, 0.4);
 }
 
 /* Responsive */
