@@ -1,18 +1,19 @@
 .vsl {
-    background: linear-gradient(180deg, var(--navy-900), var(--navy-800));
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
 }
 
 .card {
     max-width: 860px;
     margin: 0 auto;
-    background: rgba(15, 32, 68, 0.5);
-    border: 1px solid rgba(0, 212, 255, 0.08);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 24px;
-    backdrop-filter: blur(24px);
     overflow: hidden;
     opacity: 0;
     transform: translateY(40px);
     transition: all 1s var(--ease-out-expo);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 .card.visible {
@@ -24,7 +25,7 @@
 .videoFrame {
     position: relative;
     aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+    background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,8 +37,8 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 30% 40%, rgba(0, 212, 255, 0.05), transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(0, 212, 255, 0.03), transparent 50%);
+        radial-gradient(circle at 30% 40%, rgba(30, 111, 217, 0.06), transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(30, 111, 217, 0.04), transparent 50%);
 }
 
 .playOverlay {
@@ -50,8 +51,8 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: rgba(0, 212, 255, 0.1);
-    border: 2px solid rgba(0, 212, 255, 0.3);
+    background: rgba(30, 111, 217, 0.10);
+    border: 2px solid rgba(30, 111, 217, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,21 +63,21 @@
 }
 
 .playButton:hover {
-    background: rgba(0, 212, 255, 0.2);
-    border-color: var(--cyan-400);
+    background: rgba(30, 111, 217, 0.18);
+    border-color: #1E6FD9;
     transform: scale(1.1);
 }
 
 .playText {
     font-size: 14px;
-    color: var(--gray-400);
+    color: #475569;
     font-weight: 500;
 }
 
 /* Divider */
 .divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.15), transparent);
+    background: #E2E8F0;
 }
 
 /* Letter Content */
@@ -86,7 +87,7 @@
 
 .stat {
     font-size: 22px;
-    color: var(--gray-300);
+    color: #334155;
     margin-bottom: 16px;
     line-height: 1.6;
 }
@@ -95,44 +96,44 @@
     font-family: var(--font-display);
     font-size: 48px;
     font-weight: 700;
-    color: var(--cyan-400);
+    color: #1E6FD9;
     line-height: 1;
 }
 
 .body {
     font-size: 17px;
-    color: var(--gray-400);
+    color: #475569;
     line-height: 1.8;
     margin-bottom: 28px;
 }
 
 .body strong {
-    color: var(--white);
+    color: #0F172A;
 }
 
 .danger {
-    color: var(--danger);
+    color: #DC2626;
     font-weight: 600;
 }
 
 .quote {
-    border-left: 3px solid var(--cyan-400);
+    border-left: 3px solid #183057;
     padding: 24px 28px;
     margin: 0;
-    background: rgba(0, 212, 255, 0.03);
+    background: #EFF6FF;
     border-radius: 0 12px 12px 0;
     font-size: 17px;
-    color: var(--gray-300);
+    color: #334155;
     line-height: 1.8;
     font-style: normal;
 }
 
 .quote strong {
-    color: var(--white);
+    color: #0F172A;
 }
 
 .quoteHighlight {
-    color: var(--cyan-400);
+    color: #1E6FD9;
     font-weight: 600;
 }
 

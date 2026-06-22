@@ -8,7 +8,6 @@ import { useLeadModal } from "@/context/LeadModalContext";
 
 export default function HeroSection() {
     const { openModal } = useLeadModal();
-    const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -19,58 +18,17 @@ export default function HeroSection() {
     const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
     const opacityBackground = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-    useEffect(() => {
-        if (videoRef.current) {
-            videoRef.current.play().catch(error => {
-                console.log("Video auto-play failed:", error);
-            });
-        }
-    }, []);
+
 
     return (
         <section className={`${styles.hero} relative w-full overflow-hidden`} ref={containerRef}>
-            <div className="fixed inset-0 z-0 w-full h-full pointer-events-none bg-black">
-                {/* Background Looping Video - Forced for mobile */}
-                <video
-                    ref={videoRef}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    webkit-playsinline="true"
-                    className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
-                    style={{ filter: "brightness(2) contrast(1.3)", minHeight: "100%", minWidth: "100%" }}
-                >
-                    <source src="/hero-bg.mp4" type="video/mp4" />
-                    <source src="/hero-bg.webm" type="video/webm" />
-                </video>
-
-                {/* Moving Grid - The "Engine" look */}
+            {/* Light background: subtle grid + soft radial orbs */}
+            <div className="absolute inset-0 z-0 pointer-events-none bg-white">
                 <div className={styles.gridBg}>
                     <div className={styles.gridLines} />
                 </div>
-
-                {/* Glow orbs with Scroll + Auto animations */}
-                <motion.div
-                    className={styles.orbCyan}
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                        x: [0, 50, 0],
-                        y: [0, -30, 0]
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                    className={styles.orbNavy}
-                    animate={{
-                        scale: [1, 1.3, 1],
-                        opacity: [0.4, 0.7, 0.4],
-                        x: [0, -40, 0],
-                        y: [0, 40, 0]
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                />
+                <div className={styles.orbCyan} />
+                <div className={styles.orbNavy} />
             </div>
 
             <div className={`container mx-auto px-6 relative z-10 flex flex-col items-center justify-center ${styles.content}`}>
@@ -86,7 +44,7 @@ export default function HeroSection() {
                         alt="Asygnuz"
                         width={460}
                         height={70}
-                        className="brightness-0 invert opacity-90"
+                        className="brightness-0 opacity-90"
                         priority
                     />
                 </motion.div>
@@ -129,7 +87,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 1 }}
-                    whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 212, 255, 0.4)" }}
+                    whileHover={{ scale: 1.05, boxShadow: "0 8px 32px rgba(24, 48, 87, 0.35)" }}
                     whileTap={{ scale: 0.95 }}
                 >
                     <button

@@ -76,19 +76,19 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es" className={cn("dark scroll-smooth", "font-sans", geist.variable)}>
+    <html lang="es" className={cn("scroll-smooth", "font-sans", geist.variable)}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-black text-white antialiased">
+      <body className="bg-white text-[#0F172A] antialiased">
         <LeadModalProvider>
           {children}
           <LeadModal />
         </LeadModalProvider>
-        <Toaster theme="dark" richColors position="top-right" />
+        <Toaster theme="light" richColors position="top-right" />
       </body>
     </html>
   );
