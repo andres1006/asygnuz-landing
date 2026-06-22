@@ -1,12 +1,20 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useInView } from "@/hooks/useInView";
-import { Player } from "@remotion/player";
+import { Player, PlayerRef } from "@remotion/player";
 import { AsygnuzVSL } from "@/remotion/AsygnuzVSL";
 import styles from "./VSLSection.module.css";
 
 export default function VSLSection() {
-    const { ref, isVisible } = useInView();
+    const { ref, isVisible } = useInView(0.3);
+    const playerRef = useRef<PlayerRef>(null);
+
+    useEffect(() => {
+        if (isVisible && playerRef.current) {
+            playerRef.current.play();
+        }
+    }, [isVisible]);
 
     return (
         <section className={`section ${styles.vsl}`} ref={ref}>
@@ -15,6 +23,7 @@ export default function VSLSection() {
                     {/* Remotion Video Player */}
                     <div className={styles.videoFrame}>
                         <Player
+                            ref={playerRef}
                             component={AsygnuzVSL}
                             durationInFrames={1800}
                             compositionWidth={1920}
@@ -25,8 +34,9 @@ export default function VSLSection() {
                                 width: "100%",
                                 height: "100%",
                             }}
-                            autoPlay={isVisible}
+                            autoPlay={false}
                             loop={false}
+                            clickToPlay
                         />
                     </div>
 

@@ -407,10 +407,7 @@
    Divider
    ======================================== */
 .section-divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
-  margin: 0;
+  display: none;
 }
 
 /* ========================================
