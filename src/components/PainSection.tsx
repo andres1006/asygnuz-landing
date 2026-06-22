@@ -46,70 +46,105 @@ const pains = [
     }
 ];
 
-const containerVariants: Variants = {
-    hidden: { opacity: 0, perspective: 1000 },
+const gridVariants: Variants = {
+    hidden: {},
     visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2,
-            delayChildren: 0.1
-        }
+        transition: { staggerChildren: 0.13, delayChildren: 0.15 }
     }
 };
 
-const itemVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.8, rotateY: 30, y: 50 },
-    visible: { 
-        opacity: 1, 
-        scale: 1, 
-        rotateY: 0,
-        y: 0, 
-        transition: { type: "spring", stiffness: 70, damping: 15 } 
+const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 48, scale: 0.96 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
     }
 };
+
+// Animates each word of a heading on scroll
+function SplitHeading({ children, className }: { children: string; className?: string }) {
+    const words = children.split(" ");
+    return (
+        <motion.span
+            className={className}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
+        >
+            {words.map((word, i) => (
+                <motion.span
+                    key={i}
+                    variants={{
+                        hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+                        visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+                    }}
+                    style={{ display: "inline-block", marginRight: "0.25em" }}
+                >
+                    {word}
+                </motion.span>
+            ))}
+        </motion.span>
+    );
+}
 
 export default function PainSection() {
     return (
         <section className={styles.pain}>
-            {/* Fondo radial rojo */}
-            <div className={styles.bgOverlay}></div>
+            <div className={styles.bgOverlay} />
 
             <div className={styles.inner}>
                 {/* Header */}
-                <motion.div 
-                    className={styles.header}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <p className={styles.pretitle}>
-                        <span className={styles.pretitleLine}></span>
+                <div className={styles.header}>
+                    <motion.p
+                        className={styles.pretitle}
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.8 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                        <span className={styles.pretitleLine} />
                         El Problema Real
-                        <span className={styles.pretitleLine}></span>
-                    </p>
-                    <h2 className={styles.title}>
-                        Tu Competencia No Espera.<br />
-                        <span className={styles.titleAccent}>¿Por Qué Deberías Tú?</span>
-                    </h2>
-                    <p className={styles.subtitle}>
-                        Deja de perder millones en estrategias obsoletas. La infraestructura de marketing tradicional es un lastre. Necesitas un <strong>motor</strong>, no una colección de parches.
-                    </p>
-                </motion.div>
+                        <span className={styles.pretitleLine} />
+                    </motion.p>
 
-                {/* Grid de dolores */}
-                <motion.div 
+                    <h2 className={styles.title}>
+                        <span className="block">
+                            <SplitHeading>Tu Competencia No Espera.</SplitHeading>
+                        </span>
+                        <span className={`block ${styles.titleAccent}`}>
+                            <SplitHeading>¿Por Qué Deberías Tú?</SplitHeading>
+                        </span>
+                    </h2>
+
+                    <motion.p
+                        className={styles.subtitle}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        Deja de perder millones en estrategias obsoletas. La infraestructura de marketing
+                        tradicional es un lastre. Necesitas un <strong>motor</strong>, no una colección de parches.
+                    </motion.p>
+                </div>
+
+                {/* Cards grid */}
+                <motion.div
                     className={styles.grid}
-                    variants={containerVariants}
+                    variants={gridVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
+                    viewport={{ once: true, amount: 0.1 }}
                 >
                     {pains.map((pain) => (
                         <motion.div
                             key={pain.title}
                             className={styles.card}
-                            variants={itemVariants}
+                            variants={cardVariants}
+                            whileHover={{ y: -6, transition: { duration: 0.25 } }}
                         >
                             <div className={styles.iconWrapper}>
                                 {pain.icon}
@@ -121,13 +156,13 @@ export default function PainSection() {
                     ))}
                 </motion.div>
 
-                {/* Footer */}
-                <motion.div 
+                {/* Footer line */}
+                <motion.div
                     className={styles.footer}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.8 }}
+                    transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
                 >
                     <p>La diferencia entre liderar y seguir radica en tu capacidad de <strong>ingeniería</strong>.</p>
                 </motion.div>

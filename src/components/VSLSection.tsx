@@ -7,8 +7,8 @@ import { AsygnuzVSL } from "@/remotion/AsygnuzVSL";
 import styles from "./VSLSection.module.css";
 
 const TOTAL_FRAMES = 1800;
-// How many viewport heights the section "sticks" to give scroll room
-const SCROLL_MULTIPLIER = 3;
+// 2× viewport heights for scroll room
+const SCROLL_MULTIPLIER = 2;
 
 export default function VSLSection() {
     const sectionRef = useRef<HTMLDivElement>(null);

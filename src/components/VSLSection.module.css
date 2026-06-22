@@ -1,10 +1,8 @@
 /* Tall wrapper — provides scroll distance to drive frame scrubbing */
 .scrollRoom {
-    /* 3× viewport height = plenty of scroll range for 60s of content */
-    height: 300vh;
+    height: 200vh;
     position: relative;
     background: #FFFFFF;
-    /* No padding, no border, no gap */
     margin: 0;
     padding: 0;
 }
