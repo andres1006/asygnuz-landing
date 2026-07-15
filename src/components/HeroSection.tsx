@@ -27,9 +27,19 @@ export default function HeroSection() {
         }
     }, []);
 
+    const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    };
+
     return (
-        <section className={`${styles.hero} relative w-full overflow-hidden`} ref={containerRef}>
-            <div className="fixed inset-0 z-0 w-full h-full pointer-events-none bg-black">
+        <section 
+            className={`${styles.hero} relative w-full overflow-hidden`} 
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+        >
+            <div className="fixed inset-0 z-0 w-full h-full pointer-events-none bg-white">
                 {/* Background Looping Video - Forced for mobile */}
                 <video
                     ref={videoRef}
@@ -38,12 +48,15 @@ export default function HeroSection() {
                     muted
                     playsInline
                     webkit-playsinline="true"
-                    className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
-                    style={{ filter: "brightness(2) contrast(1.3)", minHeight: "100%", minWidth: "100%" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ minHeight: "100%", minWidth: "100%" }}
                 >
                     <source src="/hero-bg.mp4" type="video/mp4" />
                     <source src="/hero-bg.webm" type="video/webm" />
                 </video>
+
+                {/* Mouse Interaction Glow */}
+                <div className={styles.mouseLight} />
 
                 {/* Moving Grid - The "Engine" look */}
                 <div className={styles.gridBg}>
@@ -86,7 +99,7 @@ export default function HeroSection() {
                         alt="Asygnuz"
                         width={460}
                         height={70}
-                        className="brightness-0 invert opacity-90"
+                        className="opacity-90"
                         priority
                     />
                 </motion.div>

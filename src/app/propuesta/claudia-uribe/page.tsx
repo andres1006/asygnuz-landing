@@ -95,7 +95,7 @@ export default function ClaudiaUribePropuesta() {
 
 
                 {/* HERO — fixed title with zoom-out */}
-                <section id="hero" className="relative z-10 bg-[#F8FAFC]">
+                <section id="hero" className="relative z-10 bg-white">
                     <HeroSection isAudioReady={isStarted} onInitAudio={handleStart} />
                 </section>
 

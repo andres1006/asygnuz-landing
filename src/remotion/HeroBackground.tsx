@@ -24,11 +24,11 @@ export const HeroBackground = () => {
           position: "absolute",
           left: startX,
           top: startY - yOffset + height, // Sube desde abajo
-          width: i % 2 === 0 ? 3 : 1.5,
-          height: i % 2 === 0 ? 3 : 1.5,
-          backgroundColor: i % 3 === 0 ? "rgba(0, 212, 255, 0.4)" : "rgba(0, 230, 138, 0.2)",
+          width: i % 2 === 0 ? 4 : 2,
+          height: i % 2 === 0 ? 4 : 2,
+          backgroundColor: "rgba(0, 191, 255, 0.8)",
           borderRadius: "50%",
-          boxShadow: "0 0 10px rgba(0, 212, 255, 0.8)",
+          boxShadow: "0 0 12px rgba(0, 191, 255, 0.6)",
           opacity: Math.sin((frame + i * 10) / 30) * 0.5 + 0.5,
         }}
       />
@@ -36,7 +36,7 @@ export const HeroBackground = () => {
   });
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#020617", overflow: "hidden" }}>
+    <AbsoluteFill style={{ backgroundColor: "#FFFFFF", overflow: "hidden" }}>
       {/* Luz ambiental en movimiento (Cyan/Emerald) */}
       <div
         style={{
@@ -45,7 +45,7 @@ export const HeroBackground = () => {
           height: "150%",
           left: "-25%",
           top: "-25%",
-          background: "radial-gradient(circle at center, rgba(0,212,255,0.08) 0%, rgba(0,230,138,0.03) 30%, transparent 60%)",
+          background: "radial-gradient(circle at center, rgba(0, 191, 255, 0.05) 0%, transparent 60%)",
           transform: `rotate(${rotation}deg) scale(${scale})`,
           transformOrigin: "center center",
         }}
@@ -57,8 +57,8 @@ export const HeroBackground = () => {
           position: "absolute",
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
+            linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
           opacity: 0.5

@@ -12,7 +12,7 @@ export default function FooterSection() {
                             alt="Asygnuz"
                             width={120}
                             height={50}
-                            className="brightness-0 invert opacity-90"
+                            className="brightness-0 opacity-90"
                             priority
                         />
                         <p className={styles.tagline}>

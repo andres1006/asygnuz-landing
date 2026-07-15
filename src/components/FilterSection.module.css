@@ -1,5 +1,7 @@
 .filter {
-    background: var(--navy-800);
+    background: #FFFFFF;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 100px 0;
 }
 
 .header {
@@ -38,24 +40,26 @@
 
 /* Yes column */
 .columnYes {
-    background: rgba(0, 230, 138, 0.03);
-    border: 1px solid rgba(0, 230, 138, 0.12);
+    background: rgba(0, 230, 138, 0.02);
+    border: 1px solid rgba(0, 230, 138, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
 .columnYes:hover {
     border-color: rgba(0, 230, 138, 0.25);
-    background: rgba(0, 230, 138, 0.05);
+    background: rgba(0, 230, 138, 0.04);
 }
 
 /* No column */
 .columnNo {
-    background: rgba(255, 77, 106, 0.03);
-    border: 1px solid rgba(255, 77, 106, 0.12);
+    background: rgba(255, 77, 106, 0.02);
+    border: 1px solid rgba(255, 77, 106, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
 .columnNo:hover {
     border-color: rgba(255, 77, 106, 0.25);
-    background: rgba(255, 77, 106, 0.05);
+    background: rgba(255, 77, 106, 0.04);
 }
 
 .columnHeader {
@@ -95,7 +99,7 @@
     font-family: var(--font-body);
     font-size: 18px;
     font-weight: 700;
-    color: var(--white);
+    color: #1E293B; /* Slate 800 */
 }
 
 .list {
@@ -110,7 +114,7 @@
     gap: 12px;
     align-items: flex-start;
     font-size: 15px;
-    color: var(--gray-400);
+    color: #475569; /* Slate 600 */
     line-height: 1.6;
 }
 
@@ -152,4 +156,14 @@
     .column {
         padding: 28px;
     }
+}
+
+.filter :global(.section-title) {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: #0F172A; /* Slate 900 */
+}
+
+.filter :global(.section-pretitle) {
+    color: #00B8DB; /* Cyan 500 para mejor contraste en blanco */
 }

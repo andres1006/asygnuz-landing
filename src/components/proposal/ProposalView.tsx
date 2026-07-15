@@ -97,18 +97,18 @@ function StatCard({
     icon: Icon,
     label,
     children,
-    accent = 'cyan',
+    accent = 'blue',
 }: {
     icon: IconType;
     label: string;
     children: React.ReactNode;
-    accent?: 'cyan' | 'emerald' | 'amber' | 'violet';
+    accent?: 'blue' | 'emerald' | 'amber' | 'violet';
 }) {
     const colorMap = {
-        cyan: { bg: 'rgba(34,211,238,0.08)', border: 'rgba(34,211,238,0.22)', iconBg: 'rgba(34,211,238,0.15)', icon: '#67e8f9', text: '#cffafe' },
-        emerald: { bg: 'rgba(16,185,129,0.08)', border: 'rgba(16,185,129,0.22)', iconBg: 'rgba(16,185,129,0.15)', icon: '#6ee7b7', text: '#d1fae5' },
-        amber: { bg: 'rgba(245,158,11,0.08)', border: 'rgba(245,158,11,0.22)', iconBg: 'rgba(245,158,11,0.15)', icon: '#fcd34d', text: '#fef3c7' },
-        violet: { bg: 'rgba(139,92,246,0.08)', border: 'rgba(139,92,246,0.22)', iconBg: 'rgba(139,92,246,0.15)', icon: '#c4b5fd', text: '#ede9fe' },
+        blue: { bg: '#ffffff', border: '#e2e8f0', iconBg: '#e0f2fe', icon: '#0284c7', text: '#0f172a' },
+        emerald: { bg: '#ffffff', border: '#e2e8f0', iconBg: '#d1fae5', icon: '#059669', text: '#0f172a' },
+        amber: { bg: '#ffffff', border: '#e2e8f0', iconBg: '#fef3c7', icon: '#d97706', text: '#0f172a' },
+        violet: { bg: '#ffffff', border: '#e2e8f0', iconBg: '#ede9fe', icon: '#7c3aed', text: '#0f172a' },
     };
     const c = colorMap[accent];
 
@@ -125,13 +125,14 @@ function StatCard({
                 padding: '18px 20px',
                 display: 'grid',
                 gap: 10,
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
             }}
         >
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <span style={{ width: 34, height: 34, borderRadius: 10, display: 'grid', placeItems: 'center', background: c.iconBg }}>
                     <Icon size={16} color={c.icon} />
                 </span>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: c.icon }}>{label}</span>
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#64748b' }}>{label}</span>
             </div>
             <div style={{ fontSize: 28, fontWeight: 800, color: c.text, lineHeight: 1.1 }}>{children}</div>
         </motion.div>
@@ -158,9 +159,8 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
         <div
             style={{
                 minHeight: '100vh',
-                background:
-                    'radial-gradient(1200px 500px at 10% -10%, rgba(56,189,248,0.12), transparent 65%), radial-gradient(900px 500px at 90% 10%, rgba(59,130,246,0.13), transparent 65%), linear-gradient(160deg,#030711 0%, #071327 45%, #030915 100%)',
-                color: '#e2e8f0',
+                background: '#f8fafc',
+                color: '#334155',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
             }}
         >
@@ -169,7 +169,7 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                 style={{
                     position: 'fixed', top: 0, left: 0, height: 3, width: '100%',
                     transformOrigin: '0%', scaleX: scrollYProgress,
-                    background: 'linear-gradient(90deg, #22d3ee, #60a5fa)',
+                    background: 'linear-gradient(90deg, #1D85C4, #38bdf8)',
                     zIndex: 120,
                 }}
             />
@@ -177,8 +177,8 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
             {/* Header */}
             <header style={{
                 position: 'sticky', top: 0, zIndex: 100,
-                borderBottom: '1px solid rgba(148,163,184,0.15)',
-                background: 'rgba(2, 8, 23, 0.82)',
+                borderBottom: '1px solid #e2e8f0',
+                background: 'rgba(255, 255, 255, 0.9)',
                 backdropFilter: 'blur(12px)',
             }}>
                 <div style={{
@@ -186,23 +186,23 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, flexWrap: 'wrap',
                 }}>
                     <div>
-                        <p style={{ margin: 0, color: '#67e8f9', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700 }}>
+                        <p style={{ margin: 0, color: '#1D85C4', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 700 }}>
                             Propuesta Asygnuz
                         </p>
-                        <h1 style={{ margin: '1px 0 0', fontSize: 18, color: '#f8fafc', fontWeight: 800 }}>
+                        <h1 style={{ margin: '1px 0 0', fontSize: 18, color: '#0f172a', fontWeight: 800 }}>
                             {proposal.projectName || proposal.clientCompany}
                         </h1>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                         <span style={{
                             padding: '5px 10px', borderRadius: 999, fontSize: 11,
-                            border: '1px solid rgba(103,232,249,0.3)', background: 'rgba(34,211,238,0.1)',
-                            color: '#67e8f9', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 5,
+                            border: '1px solid #bbf7d0', background: '#f0fdf4',
+                            color: '#166534', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 5,
                         }}>
-                            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34d399', display: 'inline-block' }} />
+                            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
                             Activa
                         </span>
-                        <span style={{ fontSize: 11, color: 'rgba(148,163,184,0.9)' }}>Vence: {fmtDate(proposal.expiresAt)}</span>
+                        <span style={{ fontSize: 11, color: '#64748b' }}>Vence: {fmtDate(proposal.expiresAt)}</span>
                     </div>
                 </div>
             </header>
@@ -215,8 +215,9 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                 {/* Sidebar Nav */}
                 <aside style={{
                     position: 'sticky', top: 72, alignSelf: 'start',
-                    borderRadius: 14, border: '1px solid rgba(148,163,184,0.12)',
-                    background: 'rgba(10,18,35,0.7)', backdropFilter: 'blur(8px)', padding: 10,
+                    borderRadius: 14, border: '1px solid #e2e8f0',
+                    background: '#ffffff', padding: 10,
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
                 }}>
                     <div style={{ display: 'grid', gap: 4 }}>
                         {SECTIONS.map((sec) => {
@@ -230,9 +231,9 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                                     style={{
                                         display: 'flex', alignItems: 'center', gap: 8, textAlign: 'left',
                                         padding: '8px 10px', borderRadius: 10, cursor: 'pointer',
-                                        border: isActive ? '1px solid rgba(103,232,249,0.4)' : '1px solid transparent',
-                                        background: isActive ? 'rgba(34,211,238,0.12)' : 'transparent',
-                                        color: isActive ? '#cffafe' : '#94a3b8',
+                                        border: isActive ? '1px solid #bae6fd' : '1px solid transparent',
+                                        background: isActive ? '#f0f9ff' : 'transparent',
+                                        color: isActive ? '#0369a1' : '#64748b',
                                         transition: 'all 0.2s',
                                     }}
                                 >
@@ -256,58 +257,59 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                             transition={{ duration: 0.4 }}
                             style={{
                                 borderRadius: 20, padding: '28px 28px 24px',
-                                border: '1px solid rgba(148,163,184,0.15)',
-                                background: 'linear-gradient(165deg, rgba(15,23,42,0.9) 0%, rgba(10,18,35,0.85) 100%)',
+                                border: '1px solid #e2e8f0',
+                                background: '#ffffff',
                                 position: 'relative', overflow: 'hidden',
+                                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
                             }}
                         >
                             {/* Decorative glow */}
                             <div style={{
                                 position: 'absolute', top: -60, right: -60, width: 200, height: 200,
-                                borderRadius: '50%', background: 'rgba(34,211,238,0.06)', filter: 'blur(60px)', pointerEvents: 'none',
+                                borderRadius: '50%', background: '#e0f2fe', filter: 'blur(60px)', pointerEvents: 'none',
                             }} />
 
                             <div style={{ position: 'relative', zIndex: 1 }}>
                                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', marginBottom: 20 }}>
                                     <div>
-                                        <p style={{ margin: 0, fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#67e8f9', fontWeight: 700 }}>
+                                        <p style={{ margin: 0, fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#1D85C4', fontWeight: 700 }}>
                                             Preparado para
                                         </p>
-                                        <h2 style={{ margin: '4px 0 2px', fontSize: 30, fontWeight: 800, color: '#f8fafc' }}>
+                                        <h2 style={{ margin: '4px 0 2px', fontSize: 30, fontWeight: 800, color: '#0f172a' }}>
                                             {proposal.clientName}
                                         </h2>
-                                        <p style={{ margin: 0, fontSize: 15, color: '#94a3b8' }}>
+                                        <p style={{ margin: 0, fontSize: 15, color: '#64748b' }}>
                                             {proposal.clientCompany}{proposal.clientRole ? ` · ${proposal.clientRole}` : ''}
                                         </p>
                                     </div>
                                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                                         <span style={{
                                             padding: '6px 12px', borderRadius: 10, fontSize: 12, fontWeight: 700,
-                                            border: '1px solid rgba(148,163,184,0.2)', background: 'rgba(255,255,255,0.03)',
-                                            color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: 5,
+                                            border: '1px solid #e2e8f0', background: '#f8fafc',
+                                            color: '#475569', display: 'flex', alignItems: 'center', gap: 5,
                                         }}>
-                                            <FiCalendar size={12} /> {fmtDate(proposal.createdAt)}
+                                            <FiCalendar size={12} color="#94a3b8" /> {fmtDate(proposal.createdAt)}
                                         </span>
                                         <span style={{
                                             padding: '6px 12px', borderRadius: 10, fontSize: 12, fontWeight: 700,
-                                            border: '1px solid rgba(148,163,184,0.2)', background: 'rgba(255,255,255,0.03)',
-                                            color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: 5,
+                                            border: '1px solid #e2e8f0', background: '#f8fafc',
+                                            color: '#475569', display: 'flex', alignItems: 'center', gap: 5,
                                         }}>
-                                            <FiMap size={12} /> {timeLabel}
+                                            <FiMap size={12} color="#94a3b8" /> {timeLabel}
                                         </span>
                                     </div>
                                 </div>
 
-                                <div style={{ borderRadius: 14, border: '1px solid rgba(148,163,184,0.12)', background: 'rgba(255,255,255,0.02)', padding: '16px 18px' }}>
-                                    <p style={{ margin: 0, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#7dd3fc', fontWeight: 700, marginBottom: 6 }}>Objetivo</p>
-                                    <p style={{ margin: 0, color: '#e2e8f0', fontSize: 15, lineHeight: 1.65 }}>{proposal.projectObjective}</p>
+                                <div style={{ borderRadius: 14, border: '1px solid #e2e8f0', background: '#f8fafc', padding: '16px 18px' }}>
+                                    <p style={{ margin: 0, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#0284c7', fontWeight: 700, marginBottom: 6 }}>Objetivo</p>
+                                    <p style={{ margin: 0, color: '#334155', fontSize: 15, lineHeight: 1.65 }}>{proposal.projectObjective}</p>
                                 </div>
                             </div>
                         </motion.div>
 
                         {/* KPI Cards */}
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
-                            <StatCard icon={FiDollarSign} label="Inversión" accent="cyan">
+                            <StatCard icon={FiDollarSign} label="Inversión" accent="blue">
                                 <AnimatedCounter value={proposal.totalInvestment} prefix="$" />
                             </StatCard>
                             <StatCard icon={FiTrendingUp} label="ROI Estimado" accent="emerald">
@@ -330,22 +332,23 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                             viewport={{ once: true, margin: '-60px' }}
                             transition={{ duration: 0.35 }}
                             style={{
-                                borderRadius: 18, border: '1px solid rgba(148,163,184,0.15)',
-                                background: 'linear-gradient(165deg, rgba(15,23,42,0.88) 0%, rgba(10,18,35,0.82) 100%)',
+                                borderRadius: 18, border: '1px solid #e2e8f0',
+                                background: '#ffffff',
                                 padding: 24, display: 'grid', gap: 16,
+                                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
                             }}
                         >
                             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)' }}>
-                                    <FiAlertCircle size={17} color="#fca5a5" />
+                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: '#fee2e2', border: '1px solid #fca5a5' }}>
+                                    <FiAlertCircle size={17} color="#dc2626" />
                                 </span>
                                 <div>
-                                    <h2 style={{ margin: 0, fontSize: 20, color: '#f8fafc', fontWeight: 800 }}>Diagnóstico Actual</h2>
-                                    <p style={{ margin: '1px 0 0', color: 'rgba(191,219,254,0.8)', fontSize: 12 }}>Puntos de fricción identificados</p>
+                                    <h2 style={{ margin: 0, fontSize: 20, color: '#0f172a', fontWeight: 800 }}>Diagnóstico Actual</h2>
+                                    <p style={{ margin: '1px 0 0', color: '#64748b', fontSize: 12 }}>Puntos de fricción identificados</p>
                                 </div>
                             </div>
 
-                            <p style={{ margin: 0, color: '#cbd5e1', lineHeight: 1.65, fontSize: 14 }}>{proposal.currentSituation}</p>
+                            <p style={{ margin: 0, color: '#475569', lineHeight: 1.65, fontSize: 14 }}>{proposal.currentSituation}</p>
 
                             <div style={{ display: 'grid', gap: 8 }}>
                                 {challenges.map((item, i) => (
@@ -358,39 +361,37 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                                         style={{
                                             display: 'flex', alignItems: 'flex-start', gap: 10,
                                             padding: '12px 14px', borderRadius: 12,
-                                            border: '1px solid rgba(239,68,68,0.18)', background: 'rgba(239,68,68,0.06)',
+                                            border: '1px solid #fecaca', background: '#fef2f2',
                                         }}
                                     >
                                         <span style={{
                                             width: 22, height: 22, borderRadius: 6, display: 'grid', placeItems: 'center',
-                                            background: 'rgba(239,68,68,0.15)', flexShrink: 0, marginTop: 1,
+                                            background: '#fecaca', flexShrink: 0, marginTop: 1,
                                         }}>
-                                            <FiAlertCircle size={12} color="#fca5a5" />
+                                            <FiAlertCircle size={12} color="#dc2626" />
                                         </span>
-                                        <span style={{ color: '#fecdd3', fontSize: 14 }}>{item}</span>
+                                        <span style={{ color: '#991b1b', fontSize: 14 }}>{item}</span>
                                     </motion.div>
                                 ))}
                             </div>
 
                             {/* Cost gauge */}
                             {costRatio > 0 && (
-                                <div style={{ borderRadius: 12, border: '1px solid rgba(245,158,11,0.2)', background: 'rgba(245,158,11,0.06)', padding: '14px 16px' }}>
+                                <div style={{ borderRadius: 12, border: '1px solid #fde68a', background: '#fffbeb', padding: '14px 16px' }}>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                                        <span style={{ fontSize: 12, color: '#fcd34d', fontWeight: 700 }}>Costo anual de inacción vs inversión</span>
-                                        <span style={{ fontSize: 13, color: '#fef3c7', fontWeight: 800 }}>
-                                            {money(proposal.costOfInaction * 12)} / año
+                                        <span style={{ fontSize: 12, color: '#b45309', fontWeight: 700 }}>Costo anual de inacción vs inversión</span>
+                                        <span style={{ fontSize: 13, color: '#92400e', fontWeight: 800 }}>
+                                            <AnimatedCounter value={proposal.costOfInaction * 12} prefix="$" /> / año
                                         </span>
                                     </div>
-                                    <div style={{ height: 8, borderRadius: 999, background: 'rgba(255,255,255,0.08)', overflow: 'hidden' }}>
+                                    <div style={{ height: 8, borderRadius: 999, background: '#fef3c7', overflow: 'hidden' }}>
                                         <motion.div
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: `${Math.min(costRatio / 5 * 100, 100)}%` }}
-                                            viewport={{ once: true }}
+                                            animate={{ width: `${Math.min(costRatio / 5 * 100, 100)}%` }}
                                             transition={{ duration: 1, ease: 'easeOut' }}
                                             style={{ height: '100%', borderRadius: 999, background: 'linear-gradient(90deg, #f59e0b, #ef4444)' }}
                                         />
                                     </div>
-                                    <p style={{ margin: '6px 0 0', fontSize: 11, color: '#fcd34d' }}>
+                                    <p style={{ margin: '6px 0 0', fontSize: 11, color: '#b45309' }}>
                                         {costRatio.toFixed(1)}x más costoso que la inversión propuesta
                                     </p>
                                 </div>
@@ -406,22 +407,23 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                             viewport={{ once: true, margin: '-60px' }}
                             transition={{ duration: 0.35 }}
                             style={{
-                                borderRadius: 18, border: '1px solid rgba(148,163,184,0.15)',
-                                background: 'linear-gradient(165deg, rgba(15,23,42,0.88) 0%, rgba(10,18,35,0.82) 100%)',
+                                borderRadius: 18, border: '1px solid #e2e8f0',
+                                background: '#ffffff',
                                 padding: 24, display: 'grid', gap: 16,
+                                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
                             }}
                         >
                             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.3)' }}>
-                                    <FiCompass size={17} color="#6ee7b7" />
+                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: '#d1fae5', border: '1px solid #a7f3d0' }}>
+                                    <FiCompass size={17} color="#059669" />
                                 </span>
                                 <div>
-                                    <h2 style={{ margin: 0, fontSize: 20, color: '#f8fafc', fontWeight: 800 }}>Visión Objetivo</h2>
-                                    <p style={{ margin: '1px 0 0', color: 'rgba(191,219,254,0.8)', fontSize: 12 }}>Escenario deseado tras implementación</p>
+                                    <h2 style={{ margin: 0, fontSize: 20, color: '#0f172a', fontWeight: 800 }}>Visión Objetivo</h2>
+                                    <p style={{ margin: '1px 0 0', color: '#64748b', fontSize: 12 }}>Escenario deseado tras implementación</p>
                                 </div>
                             </div>
 
-                            <p style={{ margin: 0, color: '#cbd5e1', lineHeight: 1.65, fontSize: 14 }}>{proposal.proposedSolution}</p>
+                            <p style={{ margin: 0, color: '#475569', lineHeight: 1.65, fontSize: 14 }}>{proposal.proposedSolution}</p>
 
                             <div style={{ display: 'grid', gap: 8 }}>
                                 {outcomes.map((item, i) => (
@@ -434,16 +436,16 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                                         style={{
                                             display: 'flex', alignItems: 'flex-start', gap: 10,
                                             padding: '12px 14px', borderRadius: 12,
-                                            border: '1px solid rgba(16,185,129,0.2)', background: 'rgba(16,185,129,0.06)',
+                                            border: '1px solid #bbf7d0', background: '#f0fdf4',
                                         }}
                                     >
                                         <span style={{
                                             width: 22, height: 22, borderRadius: 6, display: 'grid', placeItems: 'center',
-                                            background: 'rgba(16,185,129,0.15)', flexShrink: 0, marginTop: 1,
+                                            background: '#bbf7d0', flexShrink: 0, marginTop: 1,
                                         }}>
-                                            <FiCheckCircle size={12} color="#6ee7b7" />
+                                            <FiCheckCircle size={12} color="#16a34a" />
                                         </span>
-                                        <span style={{ color: '#dcfce7', fontSize: 14 }}>{item}</span>
+                                        <span style={{ color: '#166534', fontSize: 14 }}>{item}</span>
                                     </motion.div>
                                 ))}
                             </div>
@@ -458,18 +460,19 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                             viewport={{ once: true, margin: '-60px' }}
                             transition={{ duration: 0.35 }}
                             style={{
-                                borderRadius: 18, border: '1px solid rgba(148,163,184,0.15)',
-                                background: 'linear-gradient(165deg, rgba(15,23,42,0.88) 0%, rgba(10,18,35,0.82) 100%)',
+                                borderRadius: 18, border: '1px solid #e2e8f0',
+                                background: '#ffffff',
                                 padding: 24, display: 'grid', gap: 20,
+                                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
                             }}
                         >
                             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.3)' }}>
-                                    <FiMap size={17} color="#a5b4fc" />
+                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: '#e0e7ff', border: '1px solid #c7d2fe' }}>
+                                    <FiMap size={17} color="#4f46e5" />
                                 </span>
                                 <div>
-                                    <h2 style={{ margin: 0, fontSize: 20, color: '#f8fafc', fontWeight: 800 }}>Roadmap de Ejecución</h2>
-                                    <p style={{ margin: '1px 0 0', color: 'rgba(191,219,254,0.8)', fontSize: 12 }}>Plan por fases con entregables claros</p>
+                                    <h2 style={{ margin: 0, fontSize: 20, color: '#0f172a', fontWeight: 800 }}>Roadmap de Ejecución</h2>
+                                    <p style={{ margin: '1px 0 0', color: '#64748b', fontSize: 12 }}>Plan por fases con entregables claros</p>
                                 </div>
                             </div>
 
@@ -478,7 +481,7 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                                 {/* Vertical line */}
                                 <div style={{
                                     position: 'absolute', left: 8, top: 4, bottom: 4, width: 2,
-                                    background: 'linear-gradient(180deg, rgba(99,102,241,0.4), rgba(34,211,238,0.2))',
+                                    background: 'linear-gradient(180deg, #818cf8, #38bdf8)',
                                     borderRadius: 2,
                                 }} />
 
@@ -495,24 +498,24 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                                             {/* Dot */}
                                             <div style={{
                                                 position: 'absolute', left: -24, top: 14, width: 12, height: 12,
-                                                borderRadius: '50%', background: '#6366f1', border: '2px solid #0f172a',
-                                                boxShadow: '0 0 8px rgba(99,102,241,0.4)',
+                                                borderRadius: '50%', background: '#4f46e5', border: '2px solid #ffffff',
+                                                boxShadow: '0 0 8px rgba(79,70,229,0.4)',
                                             }} />
 
                                             <div style={{
                                                 borderRadius: 14, padding: '16px 18px',
-                                                border: '1px solid rgba(99,102,241,0.18)', background: 'rgba(99,102,241,0.06)',
+                                                border: '1px solid #e0e7ff', background: '#f5f7ff',
                                             }}>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
-                                                    <h3 style={{ margin: 0, fontSize: 15, color: '#f8fafc', fontWeight: 700 }}>
-                                                        <span style={{ color: '#a5b4fc', fontSize: 12, fontWeight: 800, marginRight: 6 }}>Fase {i + 1}</span>
+                                                    <h3 style={{ margin: 0, fontSize: 15, color: '#0f172a', fontWeight: 700 }}>
+                                                        <span style={{ color: '#4f46e5', fontSize: 12, fontWeight: 800, marginRight: 6 }}>Fase {i + 1}</span>
                                                         {phase.title}
                                                     </h3>
-                                                    <span style={{ fontSize: 11, color: '#a5b4fc', fontWeight: 700, padding: '3px 8px', borderRadius: 999, border: '1px solid rgba(99,102,241,0.25)', background: 'rgba(99,102,241,0.1)' }}>
+                                                    <span style={{ fontSize: 11, color: '#4338ca', fontWeight: 700, padding: '3px 8px', borderRadius: 999, border: '1px solid #c7d2fe', background: '#e0e7ff' }}>
                                                         {phase.duration}
                                                     </span>
                                                 </div>
-                                                <p style={{ margin: 0, fontSize: 13, color: '#cbd5e1', lineHeight: 1.55 }}>{phase.description}</p>
+                                                <p style={{ margin: 0, fontSize: 13, color: '#475569', lineHeight: 1.55 }}>{phase.description}</p>
                                             </div>
                                         </motion.div>
                                     ))}
@@ -522,12 +525,12 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                             {/* Deliverables */}
                             {deliverables.length > 0 && (
                                 <div>
-                                    <p style={{ margin: '0 0 8px', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#7dd3fc', fontWeight: 700 }}>Entregables clave</p>
+                                    <p style={{ margin: '0 0 8px', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#0284c7', fontWeight: 700 }}>Entregables clave</p>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                                         {deliverables.map((item, i) => (
                                             <span key={`d-${i}`} style={{
                                                 borderRadius: 999, padding: '5px 10px', fontSize: 12, fontWeight: 600,
-                                                border: '1px solid rgba(125,211,252,0.25)', background: 'rgba(34,211,238,0.06)', color: '#cffafe',
+                                                border: '1px solid #bae6fd', background: '#f0f9ff', color: '#0369a1',
                                             }}>
                                                 {item}
                                             </span>
@@ -546,64 +549,139 @@ export default function ProposalView({ proposal }: { proposal: ProposalViewModel
                             viewport={{ once: true, margin: '-60px' }}
                             transition={{ duration: 0.35 }}
                             style={{
-                                borderRadius: 18, border: '1px solid rgba(148,163,184,0.15)',
-                                background: 'linear-gradient(165deg, rgba(15,23,42,0.88) 0%, rgba(10,18,35,0.82) 100%)',
+                                borderRadius: 18, border: '1px solid #e2e8f0',
+                                background: '#ffffff',
                                 padding: 24, display: 'grid', gap: 20,
+                                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
                             }}
                         >
                             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: 'rgba(34,211,238,0.12)', border: '1px solid rgba(34,211,238,0.3)' }}>
-                                    <FiTrendingUp size={17} color="#67e8f9" />
+                                <span style={{ width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', background: '#e0f2fe', border: '1px solid #bae6fd' }}>
+                                    <FiTrendingUp size={17} color="#0284c7" />
                                 </span>
                                 <div>
-                                    <h2 style={{ margin: 0, fontSize: 20, color: '#f8fafc', fontWeight: 800 }}>Inversión y Caso de Negocio</h2>
-                                    <p style={{ margin: '1px 0 0', color: 'rgba(191,219,254,0.8)', fontSize: 12 }}>Métricas para toma de decisión ejecutiva</p>
+                                    <h2 style={{ margin: 0, fontSize: 20, color: '#0f172a', fontWeight: 800 }}>Inversión y Caso de Negocio</h2>
+                                    <p style={{ margin: '1px 0 0', color: '#64748b', fontSize: 12 }}>Métricas para toma de decisión ejecutiva</p>
                                 </div>
                             </div>
 
                             {/* Main investment cards */}
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
-                                <div style={{ borderRadius: 14, padding: '18px 20px', border: '1px solid rgba(34,211,238,0.2)', background: 'rgba(34,211,238,0.06)' }}>
-                                    <p style={{ margin: 0, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#67e8f9', fontWeight: 700 }}>Inversión Total</p>
-                                    <p style={{ margin: '8px 0 0', fontSize: 32, color: '#cffafe', fontWeight: 800, lineHeight: 1 }}>
+                                <div style={{ borderRadius: 14, padding: '18px 20px', border: '1px solid #bae6fd', background: '#f0f9ff' }}>
+                                    <p style={{ margin: 0, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#0284c7', fontWeight: 700 }}>Inversión Total</p>
+                                    <p style={{ margin: '8px 0 0', fontSize: 32, color: '#0f172a', fontWeight: 800, lineHeight: 1 }}>
                                         <AnimatedCounter value={proposal.totalInvestment} prefix="$" />
                                     </p>
-                                    <p style={{ margin: '6px 0 0', fontSize: 12, color: '#94a3b8' }}>Pago único</p>
+                                    <p style={{ margin: '6px 0 0', fontSize: 12, color: '#64748b' }}>Pago único</p>
                                 </div>
-                                <div style={{ borderRadius: 14, padding: '18px 20px', border: '1px solid rgba(16,185,129,0.2)', background: 'rgba(16,185,129,0.06)' }}>
-                                    <p style={{ margin: 0, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#6ee7b7', fontWeight: 700 }}>Retorno de Inversión</p>
-                                    <p style={{ margin: '8px 0 0', fontSize: 32, color: '#d1fae5', fontWeight: 800, lineHeight: 1 }}>
+                                <div style={{ borderRadius: 14, padding: '18px 20px', border: '1px solid #a7f3d0', background: '#ecfdf5' }}>
+                                    <p style={{ margin: 0, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#059669', fontWeight: 700 }}>Retorno de Inversión</p>
+                                    <p style={{ margin: '8px 0 0', fontSize: 32, color: '#0f172a', fontWeight: 800, lineHeight: 1 }}>
                                         <AnimatedCounter value={proposal.roiPercentage} suffix="%" />
                                     </p>
-                                    <p style={{ margin: '6px 0 0', fontSize: 12, color: '#94a3b8' }}>ROI estimado</p>
+                                    <p style={{ margin: '6px 0 0', fontSize: 12, color: '#64748b' }}>ROI estimado</p>
                                 </div>
-                                <div style={{ borderRadius: 14, padding: '18px 20px', border: '1px solid rgba(245,158,11,0.2)', background: 'rgba(245,158,11,0.06)' }}>
-                                    <p style={{ margin: 0, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#fcd34d', fontWeight: 700 }}>Costo de No Actuar</p>
-                                    <p style={{ margin: '8px 0 0', fontSize: 32, color: '#fef3c7', fontWeight: 800, lineHeight: 1 }}>
-                                        <AnimatedCounter value={proposal.costOfInaction} prefix="$" />
-                                    </p>
-                                    <p style={{ margin: '6px 0 0', fontSize: 12, color: '#94a3b8' }}>Pérdida mensual estimada</p>
+                                <div style={{ padding: '24px', borderRadius: 12, border: '1px solid #fef3c7', background: '#fffbeb', flex: '1 1 250px' }}>
+                                    <span style={{ fontSize: 11, fontWeight: 700, color: '#d97706', letterSpacing: '0.05em' }}>PÉRDIDA POR NO ACTUAR</span>
+                                    <div style={{ fontSize: 32, fontWeight: 800, color: '#0f172a', margin: '8px 0 4px', display: 'flex', alignItems: 'center' }}>
+                                        <span style={{ color: '#d97706', marginRight: 2 }}>$</span>
+                                        <AnimatedCounter value={proposal.costOfInaction} />
+                                    </div>
+                                    <span style={{ fontSize: 12, color: '#64748b' }}>Dinero que se pierde cada mes</span>
                                 </div>
                             </div>
 
                             {/* ROI visual gauge */}
                             {proposal.roiPercentage > 0 && (
-                                <div style={{ borderRadius: 14, border: '1px solid rgba(16,185,129,0.15)', background: 'rgba(16,185,129,0.04)', padding: '16px 18px' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                                        <span style={{ fontSize: 12, color: '#6ee7b7', fontWeight: 700 }}>Gauge de ROI</span>
-                                        <span style={{ fontSize: 14, color: '#d1fae5', fontWeight: 800 }}>{proposal.roiPercentage}%</span>
+                                <div style={{ display: 'grid', gap: 16 }}>
+                                    <div style={{ borderRadius: 14, border: '1px solid #d1fae5', background: '#f0fdf4', padding: '16px 18px' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                                            <span style={{ fontSize: 12, color: '#059669', fontWeight: 700 }}>Gauge de ROI</span>
+                                            <span style={{ fontSize: 14, color: '#047857', fontWeight: 800 }}>
+                                                <AnimatedCounter value={proposal.roiPercentage} suffix="%" />
+                                            </span>
+                                        </div>
+                                        <div style={{ height: 10, borderRadius: 999, background: '#e2e8f0', overflow: 'hidden' }}>
+                                            <motion.div
+                                                animate={{ width: `${Math.min(proposal.roiPercentage, 500) / 5}%` }}
+                                                transition={{ duration: 1.2, ease: 'easeOut' }}
+                                                style={{
+                                                    height: '100%', borderRadius: 999,
+                                                    background: 'linear-gradient(90deg, #10b981, #0ea5e9, #3b82f6)',
+                                                }}
+                                            />
+                                        </div>
                                     </div>
-                                    <div style={{ height: 10, borderRadius: 999, background: 'rgba(255,255,255,0.06)', overflow: 'hidden' }}>
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: `${Math.min(proposal.roiPercentage, 500) / 5}%` }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 1.2, ease: 'easeOut' }}
-                                            style={{
-                                                height: '100%', borderRadius: 999,
-                                                background: 'linear-gradient(90deg, #10b981, #22d3ee, #60a5fa)',
-                                            }}
-                                        />
+
+                                    {/* Gráfica comparativa Tiempo vs Inversión / Costo Inacción */}
+                                    <div style={{ borderRadius: 14, border: '1px solid #e2e8f0', background: '#f8fafc', padding: '20px 20px 24px' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 10 }}>
+                                            <div>
+                                                <h3 style={{ margin: 0, fontSize: 14, color: '#0f172a', fontWeight: 700 }}>Proyección Acumulada a {proposal.timelineMonths} Meses</h3>
+                                                <p style={{ margin: '2px 0 0', fontSize: 12, color: '#64748b' }}>Pérdida por no hacer nada vs. Retorno estimado</p>
+                                            </div>
+                                            <div style={{ display: 'flex', gap: 12, fontSize: 11, fontWeight: 700 }}>
+                                                <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#d97706' }}>
+                                                    <span style={{ width: 10, height: 10, borderRadius: 3, background: '#f59e0b' }} /> Pérdida
+                                                </span>
+                                                <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#059669' }}>
+                                                    <span style={{ width: 10, height: 10, borderRadius: 3, background: '#10b981' }} /> Ganancia
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, height: 160, paddingBottom: 24, borderBottom: '1px solid #e2e8f0', position: 'relative' }}>
+                                            {/* Línea base */}
+                                            <div style={{ position: 'absolute', left: 0, right: 0, bottom: 23, height: 1, background: '#cbd5e1', borderStyle: 'dashed' }} />
+                                            
+                                            {Array.from({ length: Math.min(proposal.timelineMonths, 12) }).map((_, i) => {
+                                                const mes = i + 1;
+                                                
+                                                // La pérdida se acumula linealmente
+                                                const perdidaMensual = proposal.costOfInaction * mes;
+                                                
+                                                // El beneficio extra generado puramente por el ROI
+                                                const beneficioRoiTotal = proposal.totalInvestment * (proposal.roiPercentage / 100);
+                                                
+                                                // Curva de aceleración (lento al principio, rápido al final)
+                                                const factorAceleracion = Math.pow(mes / proposal.timelineMonths, 2);
+                                                
+                                                // La ganancia total es la suma de:
+                                                // 1. La pérdida que logramos evitar (Savings)
+                                                // 2. El beneficio extra (ROI)
+                                                const gananciaMensual = (perdidaMensual + beneficioRoiTotal) * factorAceleracion;
+                                                
+                                                const maxValue = Math.max(
+                                                    proposal.costOfInaction * proposal.timelineMonths, 
+                                                    (proposal.costOfInaction * proposal.timelineMonths) + beneficioRoiTotal
+                                                ) || 1;
+
+                                                const heightPerdida = Math.min((perdidaMensual / maxValue) * 100, 100);
+                                                const heightGanancia = Math.min((gananciaMensual / maxValue) * 100, 100);
+
+                                                return (
+                                                    <div key={`chart-m-${i}`} style={{ flex: 1, display: 'flex', justifyContent: 'center', position: 'relative', height: '100%' }}>
+                                                        <div style={{ position: 'absolute', bottom: 0, width: '100%', height: '100%', maxWidth: 40, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', gap: 2 }}>
+                                                            {/* Barra Pérdida */}
+                                                            <motion.div
+                                                                title={`Mes ${mes} - Pérdida acumulada: $${Math.round(perdidaMensual).toLocaleString()}`}
+                                                                animate={{ height: `${heightPerdida}%` }}
+                                                                transition={{ duration: 0.8 }}
+                                                                style={{ width: '45%', background: 'linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)', borderRadius: '4px 4px 0 0', cursor: 'pointer' }}
+                                                            />
+                                                            {/* Barra Ganancia */}
+                                                            <motion.div
+                                                                title={`Mes ${mes} - Ganancia acumulada: $${Math.round(gananciaMensual).toLocaleString()}`}
+                                                                animate={{ height: `${heightGanancia}%` }}
+                                                                transition={{ duration: 0.8, delay: 0.1 }}
+                                                                style={{ width: '45%', background: 'linear-gradient(180deg, #34d399 0%, #10b981 100%)', borderRadius: '4px 4px 0 0', cursor: 'pointer' }}
+                                                            />
+                                                        </div>
+                                                        <span style={{ position: 'absolute', bottom: -20, fontSize: 10, color: '#64748b', fontWeight: 600 }}>M{mes}</span>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
                                 </div>
                             )}

@@ -16,7 +16,7 @@ export default function VSLSection() {
                     <div className={styles.videoFrame}>
                         <Player
                             component={AsygnuzVSL}
-                            durationInFrames={1800}
+                            durationInFrames={1320}
                             compositionWidth={1920}
                             compositionHeight={1080}
                             fps={30}
@@ -25,8 +25,8 @@ export default function VSLSection() {
                                 width: "100%",
                                 height: "100%",
                             }}
-                            autoPlay={false}
-                            loop={false}
+                            autoPlay={true}
+                            loop={true}
                         />
                     </div>
 

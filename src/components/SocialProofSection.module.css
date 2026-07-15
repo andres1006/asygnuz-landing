@@ -1,5 +1,7 @@
 .proof {
-    background: var(--navy-900);
+    background: #FFFFFF;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 100px 0;
 }
 
 .header {
@@ -18,12 +20,13 @@
 .caseStudy {
     max-width: 800px;
     margin: 0 auto;
-    background: rgba(15, 32, 68, 0.5);
-    border: 1px solid rgba(0, 212, 255, 0.08);
+    background: #F8FAFC; /* Slate 50 */
+    border: 1px solid rgba(0, 212, 255, 0.12);
     border-radius: 24px;
     padding: 48px;
     opacity: 0;
     transform: translateY(40px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
     transition: all 0.9s var(--ease-out-expo) 0.2s;
 }
 
@@ -40,9 +43,9 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gray-400);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #475569; /* Slate 600 */
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.15);
     border-radius: 20px;
     padding: 6px 16px;
     margin-bottom: 20px;
@@ -52,7 +55,7 @@
     font-family: var(--font-display);
     font-size: clamp(24px, 4vw, 32px);
     font-weight: 700;
-    color: var(--white);
+    color: #0F172A; /* Slate 900 */
     margin-bottom: 40px;
 }
 
@@ -114,12 +117,12 @@
 
 .stepText {
     font-size: 15px;
-    color: var(--gray-400);
+    color: #475569; /* Slate 600 */
     line-height: 1.7;
 }
 
 .stepText strong {
-    color: var(--white);
+    color: #0F172A; /* Slate 900 */
 }
 
 /* Results Bar */
@@ -130,7 +133,7 @@
     gap: 0;
     margin-top: 40px;
     padding-top: 32px;
-    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    border-top: 1px solid rgba(0, 212, 255, 0.15);
 }
 
 .resultItem {
@@ -162,7 +165,7 @@
 .resultDivider {
     width: 1px;
     height: 48px;
-    background: rgba(0, 212, 255, 0.1);
+    background: rgba(0, 212, 255, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -183,4 +186,14 @@
     .resultValue {
         font-size: 28px;
     }
+}
+
+.proof :global(.section-title) {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: #0F172A; /* Slate 900 */
+}
+
+.proof :global(.section-pretitle) {
+    color: #00B8DB; /* Cyan 500 para mejor contraste en blanco */
 }

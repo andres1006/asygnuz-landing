@@ -3,7 +3,8 @@
 }
 
 .card {
-    max-width: 860px;
+    width: 100%;
+    max-width: 1140px; /* Wider for full frame impact */
     margin: 0 auto;
     background: rgba(15, 32, 68, 0.5);
     border: 1px solid rgba(0, 212, 255, 0.08);

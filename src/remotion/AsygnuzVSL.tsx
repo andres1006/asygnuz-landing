@@ -16,15 +16,15 @@ import {
 // -- Scenes config --
 const scenes = [
     {
-        // Scene 1: Logo reveal (0-150 frames, 0-5s)
+        // Scene 1: Logo reveal (0-90 frames, 0-3s)
         start: 0,
-        end: 150,
+        end: 90,
         type: "logo" as const,
     },
     {
-        // Scene 2: Problem statement (150-450 frames, 5-15s)
-        start: 150,
-        end: 450,
+        // Scene 2: Problem statement (90-330 frames, 3-11s)
+        start: 90,
+        end: 330,
         type: "text" as const,
         lines: [
             "El 90% de las empresas",
@@ -33,9 +33,9 @@ const scenes = [
         subline: "...pero sus landing pages tardan 5 segundos en cargar",
     },
     {
-        // Scene 3: The cost (450-720, 15-24s)
-        start: 450,
-        end: 720,
+        // Scene 3: The cost (330-510, 11-17s)
+        start: 330,
+        end: 510,
         type: "text" as const,
         lines: [
             "Eso es",
@@ -44,15 +44,15 @@ const scenes = [
         subline: "Leads fríos. Seguimientos manuales. Data ciega.",
     },
     {
-        // Scene 4: The solution (720-1080, 24-36s)
-        start: 720,
-        end: 1080,
+        // Scene 4: The solution (510-750, 17-25s)
+        start: 510,
+        end: 750,
         type: "pillars" as const,
     },
     {
-        // Scene 5: The result (1080-1440, 36-48s)
-        start: 1080,
-        end: 1440,
+        // Scene 5: The result (750-1020, 25-34s)
+        start: 750,
+        end: 1020,
         type: "text" as const,
         lines: [
             "No hacemos marketing bonito.",
@@ -61,9 +61,9 @@ const scenes = [
         ],
     },
     {
-        // Scene 6: CTA (1440-1800, 48-60s)
-        start: 1440,
-        end: 1800,
+        // Scene 6: CTA (1020-1320, 34-44s)
+        start: 1020,
+        end: 1320,
         type: "cta" as const,
     },
 ];

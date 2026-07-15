@@ -190,7 +190,7 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
         <div ref={containerRef}>
             {/* PRE-INIT */}
             {!isAudioReady ? (
-                <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#F8FAFC]">
+                <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
                     <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-60" />
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -210,7 +210,7 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
                             className="flex flex-col items-center gap-4"
                         >
                             <img src="/logos/AsygnuzLogo1-010.png" alt="Asygnuz Logo" className="h-16 md:h-20 object-contain" />
-                            <p className="text-[10px] font-mono tracking-[0.8em] text-[#183057]/40 uppercase">presenta</p>
+                            <p className="text-[10px] font-mono tracking-[0.8em] text-[#183057]/80 uppercase">presenta</p>
                         </motion.div>
 
                         <div className="text-center leading-[0.85]" style={{ fontFamily: "'Inter', sans-serif" }}>
@@ -240,7 +240,7 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
                 <>
                     <div
                         ref={fixedTitleRef}
-                        className="fixed inset-0 z-20 flex items-center justify-center pointer-events-none will-change-transform bg-[#F8FAFC]"
+                        className="fixed inset-0 z-20 flex items-center justify-center pointer-events-none will-change-transform bg-white"
                     >
                         {/* Interactive Constellation Layer */}
                         <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" />
@@ -264,7 +264,7 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
                             <div className="hero-details mb-8">
                                 <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#183057]/30 bg-white/60 backdrop-blur-md">
                                     <span className="w-1.5 h-1.5 rounded-full bg-[#183057] animate-pulse" />
-                                    <span className="text-[10px] font-mono tracking-[0.5em] text-[#183057]/60 uppercase">Asygnuz S.A.S. presenta</span>
+                                    <span className="text-[10px] font-mono tracking-[0.5em] text-[#183057]/90 uppercase">Asygnuz S.A.S. presenta</span>
                                 </span>
                             </div>
 
@@ -292,10 +292,10 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
                             {/* Details */}
                             <div className="hero-details mt-8 flex flex-col items-center">
                                 <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#183057]/20 to-transparent mb-6" />
-                                <p className="hero-sub font-mono text-sm md:text-base tracking-[0.3em] text-[#183057]/60 uppercase">
+                                <p className="hero-sub font-mono text-sm md:text-base tracking-[0.3em] text-[#183057]/80 uppercase">
                                     MIA (Claudia Uribe)
                                 </p>
-                                <p className="hero-sub text-[11px] font-mono tracking-[0.25em] text-[#183057]/40 uppercase mt-2">
+                                <p className="hero-sub text-[11px] font-mono tracking-[0.25em] text-[#183057]/60 uppercase mt-2">
                                     Programa de Transformación Digital · Construcción de Agencia Interna
                                 </p>
                             </div>
@@ -312,7 +312,7 @@ export default function HeroSection({ isAudioReady, onInitAudio }: { isAudioRead
                                     />
                                 </div>
                             </motion.div>
-                            <span className="text-[8px] font-mono text-[#183057]/30 tracking-[0.5em]">SCROLL</span>
+                            <span className="text-[8px] font-mono text-[#183057]/60 tracking-[0.5em]">SCROLL</span>
                         </div>
                     </div>
 

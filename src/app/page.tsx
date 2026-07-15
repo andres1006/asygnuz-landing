@@ -2,7 +2,7 @@
 
 import SectionWrapper from "@/components/SectionWrapper";
 import HeroSection from "@/components/HeroSection";
-import VSLSection from "@/components/VSLSection";
+import ConsultingSection from "@/components/ConsultingSection";
 import PainSection from "@/components/PainSection";
 import SolutionSection from "@/components/SolutionSection";
 import SocialProofSection from "@/components/SocialProofSection";
@@ -16,7 +16,7 @@ export default function Home() {
       <HeroSection />
       
       <SectionWrapper>
-        <VSLSection />
+        <ConsultingSection />
       </SectionWrapper>
 
       <SectionWrapper>
